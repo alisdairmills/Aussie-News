@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA2F3CE025F0953100B5DB2B /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F3CDF25F0953100B5DB2B /* NewsManager.swift */; };
+		FA2F3CE325F0955800B5DB2B /* HiddenContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F3CE225F0955800B5DB2B /* HiddenContent.swift */; };
 		FA7BC59025D5FA5700439347 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BC58F25D5FA5700439347 /* AppDelegate.swift */; };
 		FA7BC59225D5FA5700439347 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BC59125D5FA5700439347 /* SceneDelegate.swift */; };
 		FA7BC59425D5FA5700439347 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BC59325D5FA5700439347 /* HomeViewController.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA2F3CDF25F0953100B5DB2B /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
+		FA2F3CE225F0955800B5DB2B /* HiddenContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenContent.swift; sourceTree = "<group>"; };
 		FA7BC58C25D5FA5700439347 /* Feel Good News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feel Good News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7BC58F25D5FA5700439347 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA7BC59125D5FA5700439347 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 		FA7BC5A525D6083D00439347 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA2F3CDF25F0953100B5DB2B /* NewsManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -111,6 +116,7 @@
 				FA7BC5B725D6122A00439347 /* SearchViewController.swift */,
 				FA7BC5BA25D6127400439347 /* FilterTopicsCollectionViewController.swift */,
 				FA7BC5BB25D6127400439347 /* FilterTopicsCollectionViewController.xib */,
+				FA2F3CE225F0955800B5DB2B /* HiddenContent.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -189,11 +195,13 @@
 			files = (
 				FA7BC5AE25D6117D00439347 /* TopicsTableViewController.swift in Sources */,
 				FA7BC5BC25D6127400439347 /* FilterTopicsCollectionViewController.swift in Sources */,
+				FA2F3CE025F0953100B5DB2B /* NewsManager.swift in Sources */,
 				FA7BC59425D5FA5700439347 /* HomeViewController.swift in Sources */,
 				FA7BC5B825D6122A00439347 /* SearchViewController.swift in Sources */,
 				FA7BC5B525D611CA00439347 /* ArticleViewController.swift in Sources */,
 				FA7BC5B225D6119C00439347 /* SettingsTableViewController.swift in Sources */,
 				FA7BC59025D5FA5700439347 /* AppDelegate.swift in Sources */,
+				FA2F3CE325F0955800B5DB2B /* HiddenContent.swift in Sources */,
 				FA7BC59225D5FA5700439347 /* SceneDelegate.swift in Sources */,
 				FA7BC5AA25D6116200439347 /* MyNewsViewController.swift in Sources */,
 			);
