@@ -15,11 +15,14 @@ class HomeTableViewController: UITableViewController {
         super.viewDidLoad()
        
         NewsManager.shared.getNews { (news) in
-            guard let news = news else {return}
+            guard let news = news else { return }
             print(news[0].title)
+            print(news[0].description)
+            print(news[0].url)
+        }
         }
     }
 
 
-}
+
 
