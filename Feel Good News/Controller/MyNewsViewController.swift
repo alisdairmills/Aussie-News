@@ -9,12 +9,16 @@ import UIKit
 
 class MyNewsViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+         
+        }
+   
     }
     
+
 
     /*
     // MARK: - Navigation
@@ -26,4 +30,4 @@ class MyNewsViewController: UIViewController {
     }
     */
 
-}
+
