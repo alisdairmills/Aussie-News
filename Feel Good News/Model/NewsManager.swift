@@ -7,52 +7,60 @@
 
 import Foundation
 
-struct NewsManager {
+protocol NewsManagerDelegate {
+    func updateNews(_ newsManager: NewsManager, news: NewsModel)
+}
 
-    let imageCache = NSCache<NSString, NSData>()
+struct NewsManager {
     
-    static let shared = NewsManager()
-    private init() {}
+    var delegate: NewsManagerDelegate?
     
     let initialUrlString = "https://newsapi.org/v2/"
     let topHeadlineUS = "top-headlines?country=us"
     
-    func getNews(completion: @escaping ([NewsModel]?) -> Void)  {
+   
+    
+    func parseData()  {
         let urlString = "\(initialUrlString)\(topHeadlineUS)&apikey=\(HiddenContent().APIKey)"
-        
         if let url = URL(string: urlString) {
-           let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            let session = URLSession(configuration: .default)
+           let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
+                    //todo - create a proper error handling func
                     print(error!)
                     return
                 }
                 if let safeData = data {
-                    let newsEnvelope = try? JSONDecoder().decode(NewsEnvelope.self, from: safeData)
-                    newsEnvelope == nil ? completion(nil) : completion(newsEnvelope!.articles)
+                    if let safeNews = self.parse(safeData) {
+                        self.delegate?.updateNews(self, news: safeNews)
+        
+                    }
+                 
                 }
             }
+            
             task.resume()
         }
         
     }
     
-    func getImage(urlString: String, completion: @escaping (Data?) -> Void) {
-        guard let url = URL(string: urlString) else {
-            completion(nil)
-            return
-    }
-        if let cachedImage = imageCache.object(forKey: NSString(string: urlString)) {
-            completion(cachedImage as Data)
-        } else {
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                guard error == nil, let data = data else {
-                    completion(nil)
-                    return
-                }
-                self.imageCache.setObject(data as NSData, forKey: NSString(string: urlString))
-                completion(data)
-            } .resume()
-        }
+     func parse(_ newsData: Data) -> NewsModel? {
+        let decoder = JSONDecoder()
+        
+        do {
+            let newsArticle = try decoder.decode(NewsData.self, from: newsData)
+            let author = newsArticle.articles[0].author
+            let title = newsArticle.articles[0].title
+            let description = newsArticle.articles[0].description
+            let url = newsArticle.articles[0].url
+            let count = newsArticle.articles.count
+            let news = NewsModel(newsAuthor: author, newsTitle: title, newsDescription: description, newsURl: url)
+            return news
+            
+        } catch {
+                return nil
+            }
+        
     }
 }
 
