@@ -9,7 +9,9 @@ import UIKit
 
 class HomeTableViewController: UITableViewController {
     
-    var newsManager = NewsManager()
+    //var newsManager = NewsManager()
+    
+    var code: String?
    
     var articleCount: Int?
     var newTitle: String?
@@ -18,8 +20,8 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        newsManager.delegate = self
-        newsManager.parseData()
+//        newsManager.delegate = self
+//        newsManager.parseData()
         
         
         
@@ -46,19 +48,15 @@ class HomeTableViewController: UITableViewController {
 
 //MARK: - News Delegate
 
-extension HomeTableViewController: NewsManagerDelegate {
-    func updateNews(_ newsManager: NewsManager, news: NewsModel) {
-       
-        articleCount = 0
-        newTitle = news.newsTitle
-        newAuthor = news.newsAuthor
-        newDescription = news.newsDescription
-        
-        
-    }
-    
-    
-}
+//extension HomeTableViewController: NewsManagerDelegate {
+//    func updateNews(_ newsManager: NewsManager, news: Articles) {
+//
+//
+//
+//    }
+//
+//
+//}
 
 
 
