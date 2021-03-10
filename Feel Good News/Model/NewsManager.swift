@@ -7,6 +7,60 @@
 
 import Foundation
 
+protocol NewsManagerDelegate {
+    func updateNews(_ newsManager: NewsManager, news: Articles)
+}
+
+struct NewsManager {
+
+    let initialUrlString = "https://newsapi.org/v2/"
+    let topHeadlineUS = "top-headlines?country=us"
+    var delegate: NewsManagerDelegate?
+    
+    func parseData()  {
+        
+        let urlString = "\(initialUrlString)\(topHeadlineUS)&apikey=\(HiddenContent().APIKey)"
+        if let url = URL(string: urlString) {
+            let session = URLSession.shared
+            let task = session.dataTask(with: url) { (data, response, error) in
+                
+                do {
+                    
+                    guard let data = data else { return }
+                    
+                    let article = try JSONDecoder().decode(Articles.self, from: data)
+                    self.delegate?.updateNews(self, news: article)
+                   
+                } catch {
+                    print(error)
+                }
+                
+                
+            }
+            task.resume()
+        }
+       
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //protocol NewsManagerDelegate {
 //    func updateNews(_ newsManager: NewsManager, news: Articles)
 //}

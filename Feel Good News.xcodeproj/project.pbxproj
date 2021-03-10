@@ -25,7 +25,6 @@
 		FA7BC5BD25D6127400439347 /* FilterTopicsCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7BC5BB25D6127400439347 /* FilterTopicsCollectionViewController.xib */; };
 		FA9A917E25F1A39E00CE109A /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A917D25F1A39E00CE109A /* NewsData.swift */; };
 		FA9A918F25F6FAED00CE109A /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A918E25F6FAED00CE109A /* HomeTableViewCell.swift */; };
-		FA9A91A025F73E3E00CE109A /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A919F25F73E3E00CE109A /* NewsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +48,6 @@
 		FA7BC5BB25D6127400439347 /* FilterTopicsCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTopicsCollectionViewController.xib; sourceTree = "<group>"; };
 		FA9A917D25F1A39E00CE109A /* NewsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
 		FA9A918E25F6FAED00CE109A /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
-		FA9A919F25F73E3E00CE109A /* NewsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				FA2F3CDF25F0953100B5DB2B /* NewsManager.swift */,
-				FA9A919F25F73E3E00CE109A /* NewsModel.swift */,
 				FA9A917D25F1A39E00CE109A /* NewsData.swift */,
 			);
 			path = Model;
@@ -202,7 +199,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA9A91A025F73E3E00CE109A /* NewsModel.swift in Sources */,
 				FA7BC5AE25D6117D00439347 /* TopicsTableViewController.swift in Sources */,
 				FA7BC5BC25D6127400439347 /* FilterTopicsCollectionViewController.swift in Sources */,
 				FA9A918F25F6FAED00CE109A /* HomeTableViewCell.swift in Sources */,

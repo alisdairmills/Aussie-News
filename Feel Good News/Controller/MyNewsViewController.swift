@@ -7,70 +7,45 @@
 
 import UIKit
 
-struct Articles: Decodable {
-    
-    let status: String?
-    let totalResults: Int?
-    let articles: [Article]
- 
-}
-
-struct Article: Decodable {
-    let author: String?
-    let title: String?
-    let description: String?
-    let url: String?
-
-}
-
 class MyNewsViewController: UIViewController {
     
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var buttonText: UIButton!
     
-    
-    
-    let initialUrlString = "https://newsapi.org/v2/"
-        let topHeadlineUS = "top-headlines?country=us"
-    
-    var articles: Articles?
+    var newsManager = NewsManager()
+    var articles: [Article]?
+    var number: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        parseData()
-        label.text = articles?.status
-        print(articles?.totalResults)
+        newsManager.delegate = self
+        newsManager.parseData()
+        
         }
    
-    //this finally works. relocate it back to models. find a way to have Articles transfer to Articles/
-    func parseData()  {
-           let urlString = "\(initialUrlString)\(topHeadlineUS)&apikey=\(HiddenContent().APIKey)"
-           if let url = URL(string: urlString) {
-            let session = URLSession.shared
-               let task = session.dataTask(with: url) { (data, response, error) in
-                
-                do {
-                   
-                guard let data = data else { return }
-               
-                    let article = try JSONDecoder().decode(Articles.self, from: data)
-                    DispatchQueue.main.async {
-                        self.articles = article
-                        self.label.text = article.articles[0].description
-                        print(article.articles[0].title)
-                    }
-                    
-               
-                
-   
-                } catch {
-           print(error)
-                   }
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        label.text = String(articles!.count)
         
         
-               }
-            task.resume()
-           }
-    
     }
 }
+
+//MARK: - News Manager Delegate
+
+extension MyNewsViewController: NewsManagerDelegate {
+    func updateNews(_ newsManager: NewsManager, news: Articles) {
+        DispatchQueue.main.async {
+            //self.label.text = String(news.articles.count)
+            self.articles = news.articles
+            self.number = news.articles.count
+            
+           
+        }
+        
+    }
+    
+    
+    
+}
+
  
