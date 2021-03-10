@@ -24,12 +24,21 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfv-Fw-60N">
+                                <rect key="frame" x="169" y="489" width="112" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="uYF-FO-zwG" eventType="touchUpInside" id="g2l-db-xM2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aoa-4o-UOU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="8Ut-Zm-tUj"/>
                     <connections>
+                        <outlet property="buttonText" destination="rfv-Fw-60N" id="tjm-XY-BkV"/>
                         <outlet property="label" destination="eRv-ex-U23" id="913-iT-W6l"/>
                     </connections>
                 </viewController>
