@@ -25,6 +25,7 @@
 		FA7BC5BD25D6127400439347 /* FilterTopicsCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7BC5BB25D6127400439347 /* FilterTopicsCollectionViewController.xib */; };
 		FA9A917E25F1A39E00CE109A /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A917D25F1A39E00CE109A /* NewsData.swift */; };
 		FA9A918F25F6FAED00CE109A /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A918E25F6FAED00CE109A /* HomeTableViewCell.swift */; };
+		FA9A91A725F99C1E00CE109A /* HomeTableViewXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9A91A525F99C1E00CE109A /* HomeTableViewXib.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		FA7BC5BB25D6127400439347 /* FilterTopicsCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTopicsCollectionViewController.xib; sourceTree = "<group>"; };
 		FA9A917D25F1A39E00CE109A /* NewsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
 		FA9A918E25F6FAED00CE109A /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		FA9A91A525F99C1E00CE109A /* HomeTableViewXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewXib.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				FA7BC59525D5FA5700439347 /* Main.storyboard */,
 				FA9A918E25F6FAED00CE109A /* HomeTableViewCell.swift */,
+				FA9A91A525F99C1E00CE109A /* HomeTableViewXib.xib */,
 				FA7BC59A25D5FA5700439347 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -185,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA7BC59C25D5FA5700439347 /* LaunchScreen.storyboard in Resources */,
+				FA9A91A725F99C1E00CE109A /* HomeTableViewXib.xib in Resources */,
 				FA7BC59925D5FA5700439347 /* Assets.xcassets in Resources */,
 				FA7BC59725D5FA5700439347 /* Main.storyboard in Resources */,
 				FA7BC5BD25D6127400439347 /* FilterTopicsCollectionViewController.xib in Resources */,

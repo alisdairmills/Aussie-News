@@ -13,6 +13,7 @@ struct Articles: Decodable {
     let totalResults: Int?
     let articles: [Article]
  
+ 
 }
 
 struct Article: Decodable {
@@ -20,7 +21,14 @@ struct Article: Decodable {
     let title: String?
     let description: String?
     let url: String?
-
+    let urlToImage: String?
+    let publishedAt: String?
+    let source: Source?
+    let content: String?
+    
 }
 
+struct Source: Decodable {
+    let name: String
+}
 

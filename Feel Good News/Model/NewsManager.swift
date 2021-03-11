@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol NewsManagerDelegate {
     func updateNews(_ newsManager: NewsManager, news: Articles)
@@ -13,34 +14,48 @@ protocol NewsManagerDelegate {
 
 struct NewsManager {
 
-    let initialUrlString = "https://newsapi.org/v2/"
-    let topHeadlineUS = "top-headlines?country=us"
+    let initialUrlString = "https://newsapi.org/v2/everything?"
+    let search = "q=australia"
     var delegate: NewsManagerDelegate?
-    
+
     func parseData()  {
-        
-        let urlString = "\(initialUrlString)\(topHeadlineUS)&apikey=\(HiddenContent().APIKey)"
+
+        let urlString = "\(initialUrlString)\(search)&apikey=\(HiddenContent().APIKey)&pagesize=100"
         if let url = URL(string: urlString) {
             let session = URLSession.shared
             let task = session.dataTask(with: url) { (data, response, error) in
-                
+
                 do {
-                    
+
                     guard let data = data else { return }
-                    
+
                     let article = try JSONDecoder().decode(Articles.self, from: data)
                     self.delegate?.updateNews(self, news: article)
-                   
+
                 } catch {
                     print(error)
                 }
-                
-                
+
+
             }
             task.resume()
         }
-       
+
     }
+    
+    func getImage(from string: String) -> UIImage? {
+        guard let url = URL(string: string) else { return nil }
+        var image: UIImage?
+        do {
+            let data = try Data(contentsOf: url)
+            image = UIImage(data: data)
+        } catch {
+            print("error")
+        }
+       
+        return image
+    }
+    
 }
 
 
