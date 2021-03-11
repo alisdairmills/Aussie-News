@@ -9,10 +9,14 @@ import UIKit
 
 class ArticleViewController: UIViewController {
 
+    var label: String?
+    
+    @IBOutlet weak var articleLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+ 
+        articleLabel.text = label
+      
     }
     
 
