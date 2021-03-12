@@ -9,26 +9,22 @@ import Foundation
 
 struct Articles: Decodable {
     
-    let status: String?
-    let totalResults: Int?
-    let articles: [Article]
- 
- 
+    let data: [Article]
+
 }
+// data wont work. change Article to Data? go back over old newsapi code
 
 struct Article: Decodable {
     let author: String?
     let title: String?
     let description: String?
     let url: String?
-    let urlToImage: String?
-    let publishedAt: String?
-    let source: Source?
-    let content: String?
+    let image: String?
+    let published_at: String?
+    let source: String?
+   
     
 }
 
-struct Source: Decodable {
-    let name: String
-}
+
 
