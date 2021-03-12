@@ -20,7 +20,7 @@ class HomeTableViewController: UITableViewController {
         newsManager.parseData()
         tableView.register(UINib(nibName: "HomeTableViewXib", bundle: nil), forCellReuseIdentifier: "CellXib")
         
-        
+       
     }
     
     //MARK: - Table View
@@ -38,7 +38,7 @@ class HomeTableViewController: UITableViewController {
         if segue.identifier == "TableViewArticle" {
                 if let indexPath = self.tableView.indexPathForSelectedRow {
                     let vc = segue.destination as! ArticleViewController
-                    vc.label = articles![indexPath.row].content
+                    vc.label = articles![indexPath.row].description
                 }
             }
         }
@@ -53,11 +53,11 @@ class HomeTableViewController: UITableViewController {
         
         let queue = DispatchQueue.global(qos: .background)
         queue.async() { () -> Void in
-            let imageURL = cellArticles?.urlToImage
+            let imageURL = cellArticles?.image
             
             //change the error url to something else
             let image = self.newsManager.getImage(from: imageURL ?? "https://www.setra.com/hubfs/Sajni/crc_error.jpg")
-            
+
             DispatchQueue.main.async {
                 cell.cellImage.image = image
             }
@@ -76,7 +76,7 @@ extension HomeTableViewController: NewsManagerDelegate {
     
     func updateNews(_ newsManager: NewsManager, news: Articles) {
         DispatchQueue.main.async {
-            self.articles = news.articles
+            self.articles = news.data
             self.tableView.reloadData()
            
         }

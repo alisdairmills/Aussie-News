@@ -13,14 +13,16 @@ protocol NewsManagerDelegate {
 }
 
 struct NewsManager {
-
-    let initialUrlString = "https://newsapi.org/v2/everything?"
-    let search = "q=australia"
+    
+    
+    let initialUrlString = "https://api.mediastack.com/v1/news?access_key="
+    let apiKey = HiddenContent().APIKey
+    let search = "&keywords=australia"
     var delegate: NewsManagerDelegate?
 
     func parseData()  {
 
-        let urlString = "\(initialUrlString)\(search)&apikey=\(HiddenContent().APIKey)&pagesize=100"
+        let urlString = "\(initialUrlString)\(HiddenContent().APIKey)&sources=en"
         if let url = URL(string: urlString) {
             let session = URLSession.shared
             let task = session.dataTask(with: url) { (data, response, error) in
@@ -36,109 +38,27 @@ struct NewsManager {
                     print(error)
                 }
 
-
             }
             task.resume()
+            
         }
 
     }
-    
+
     func getImage(from string: String) -> UIImage? {
         guard let url = URL(string: string) else { return nil }
-        var image: UIImage?
+        var URLImage: UIImage?
         do {
             let data = try Data(contentsOf: url)
-            image = UIImage(data: data)
+            URLImage = UIImage(data: data)
         } catch {
             print("error")
         }
-       
-        return image
+
+        return URLImage
     }
-    
+
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//protocol NewsManagerDelegate {
-//    func updateNews(_ newsManager: NewsManager, news: Articles)
-//}
-
-//struct NewsManager {
-//
-//    var delegate: NewsManagerDelegate?
-//
-//    let initialUrlString = "https://newsapi.org/v2/"
-//    let topHeadlineUS = "top-headlines?country=us"
-//
-//
-//
-//    func parseData()  {
-//        let urlString = "\(initialUrlString)\(topHeadlineUS)&apikey=\(HiddenContent().APIKey)"
-//        if let url = URL(string: urlString) {
-//
-//            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-//                if error != nil {
-//                    //todo - create a proper error handling func
-//                    print(error!)
-//                    return
-//                }
-//                let decoder = JSONDecoder()
-//                if let safeData = data {
-//                    if let safeNews = self.parse(safeData) {
-//                        self.delegate?.updateNews(self, news: safeNews)
-//
-//                    }
-//
-//                }
-//            }
-//            task.resume()
-//        }
-//
-//    }
-//
-//     func parse(_ newsData: Data) -> Articles? {
-//        let decoder = JSONDecoder()
-//
-//        do {
-//            let newsArticle = try decoder.decode(Articles.self, from: newsData)
-//            let status = newsArticle.status
-//            let total = newsArticle.totalResults
-//            let articles = [Article]()
-//
-//
-//
-////            let author = newsArticle.articles[0].author
-////            let title = newsArticle.articles[0].title
-////            let description = newsArticle.articles[0].description
-////            let url = newsArticle.articles[0].url
-//
-//            let news = Articles(status: status, totalResults: total, articles: articles)
-//            return news
-//
-//        } catch {
-//                return nil
-//            }
-//
-//    }
-//}
-//
-//
-//
-//

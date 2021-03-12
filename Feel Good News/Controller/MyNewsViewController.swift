@@ -29,9 +29,9 @@ class MyNewsViewController: UIViewController {
    
     @IBAction func buttonPressed(_ sender: UIButton) {
         
-      
-        label.text = articles?[0].urlToImage
-        imageView.image = newsManager.getImage(from: (articles?[1].urlToImage)!)
+        print(articles?.count)
+        label.text = articles?[0].image
+        //imageView.image = newsManager.getImage(from: (articles?[1].image)!)
       
         
     }
@@ -43,8 +43,8 @@ extension MyNewsViewController: NewsManagerDelegate {
     func updateNews(_ newsManager: NewsManager, news: Articles) {
         DispatchQueue.main.async {
             //self.label.text = String(news.articles.count)
-            self.articles = news.articles
-            self.number = news.articles.count
+            self.articles = news.data
+            self.number = news.data.count
             
             
            
