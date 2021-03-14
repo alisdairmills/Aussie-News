@@ -6,28 +6,29 @@
 //
 
 import UIKit
+import WebKit
 
-class ArticleViewController: UIViewController {
-
-    var label: String?
+class ArticleViewController: UIViewController, WKNavigationDelegate {
     
-    @IBOutlet weak var articleLabel: UILabel!
+    var webView: WKWebView!
+    
+    var articleURL: String?
+    
+    
+    override func loadView() {
+        webView = WKWebView()
+        webView.navigationDelegate = self
+        view = webView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
- 
-        articleLabel.text = label
-      
+        
+        if let safeURL = articleURL {
+        if let url = URL(string: safeURL) {
+        webView.load(URLRequest(url: url))
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
 
 }

@@ -38,7 +38,8 @@ class HomeTableViewController: UITableViewController {
         if segue.identifier == "TableViewArticle" {
                 if let indexPath = self.tableView.indexPathForSelectedRow {
                     let vc = segue.destination as! ArticleViewController
-                    vc.label = articles![indexPath.row].description
+                    vc.articleURL = articles?[indexPath.row].url
+                 
                 }
             }
         }
