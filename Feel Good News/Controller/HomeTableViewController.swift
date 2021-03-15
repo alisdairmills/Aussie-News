@@ -11,6 +11,7 @@ class HomeTableViewController: UITableViewController {
     
     var newsManager = NewsManager()
     var articles: [Article]?
+    
    
     
     
@@ -20,7 +21,7 @@ class HomeTableViewController: UITableViewController {
         newsManager.parseData()
         tableView.register(UINib(nibName: "HomeTableViewXib", bundle: nil), forCellReuseIdentifier: "CellXib")
         
-       
+   
     }
     
     //MARK: - Table View
@@ -45,12 +46,15 @@ class HomeTableViewController: UITableViewController {
         }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        // must fix this to programattically be height of xib
+        return 443
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellXib", for: indexPath) as! HomeTableViewCell
         let cellArticles = articles?[indexPath.row]
+        
+        
         
         let queue = DispatchQueue.global(qos: .background)
         queue.async() { () -> Void in
