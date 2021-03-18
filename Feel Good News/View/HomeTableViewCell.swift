@@ -11,21 +11,17 @@ class HomeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var cellTitle: UILabel!
-    @IBOutlet weak var cellTopic: UILabel!
-    @IBOutlet weak var textView: UIView!
+    @IBOutlet weak var cellCategory: UILabel!
+    @IBOutlet weak var mainBackground: UIView!
+    @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var cellDate: UILabel!
+    
+    @IBOutlet weak var cellSource: UILabel!
     
     
     override func awakeFromNib() {
        super.awakeFromNib()
-        //fix the effect view frame to be perfectly on tectview frame. auto layout issue
-        let blurEffect = UIBlurEffect(style: .light)
-        let effectView = UIVisualEffectView(effect: blurEffect)
-        effectView.frame = textView.frame
-        effectView.alpha = 1
-        
-        cellImage.addSubview(effectView)
-        
+
   }
 
    override func setSelected(_ selected: Bool, animated: Bool) {

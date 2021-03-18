@@ -9,48 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--My News View Controller-->
-        <scene sceneID="bf0-XV-K3K">
-            <objects>
-                <viewController id="uYF-FO-zwG" customClass="MyNewsViewController" customModule="Feel_Good_News" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9Kv-xw-S2H">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRv-ex-U23">
-                                <rect key="frame" x="97" y="275" width="214" height="129"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfv-Fw-60N">
-                                <rect key="frame" x="169" y="489" width="112" height="81"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="buttonPressed:" destination="uYF-FO-zwG" eventType="touchUpInside" id="g2l-db-xM2"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n78-qu-14K">
-                                <rect key="frame" x="87" y="122" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="aoa-4o-UOU"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="8Ut-Zm-tUj"/>
-                    <connections>
-                        <outlet property="buttonText" destination="rfv-Fw-60N" id="tjm-XY-BkV"/>
-                        <outlet property="imageView" destination="n78-qu-14K" id="Q5Q-vL-Z6T"/>
-                        <outlet property="label" destination="eRv-ex-U23" id="913-iT-W6l"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GoX-3a-zMv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="282.60869565217394" y="657.58928571428567"/>
-        </scene>
         <!--Topics Table View Controller-->
         <scene sceneID="AhL-Jl-4WI">
             <objects>
@@ -185,45 +143,85 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="sng-n1-G0F" kind="relationship" relationship="rootViewController" id="UyW-Bb-iRG"/>
+                        <segue destination="Cvm-bh-it5" kind="relationship" relationship="rootViewController" id="Llc-qt-JUE"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xsm-HM-MJW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-455" y="-18"/>
         </scene>
-        <!--Home Table View Controller-->
-        <scene sceneID="XMi-Qq-Di2">
+        <!--Feel Good News-->
+        <scene sceneID="AuS-XL-zRJ">
             <objects>
-                <tableViewController id="sng-n1-G0F" customClass="HomeTableViewController" customModule="Feel_Good_News" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qd7-20-k8G">
+                <viewController id="Cvm-bh-it5" customClass="HomeViewController" customModule="Feel_Good_News" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="150-Jo-w7T">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WHg-ud-Zmh">
+                                <rect key="frame" x="0.0" y="168" width="414" height="626"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="105" id="mE9-9I-gyW" customClass="HomeTableViewCell" customModule="Feel_Good_News" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="105"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mE9-9I-gyW" id="h9a-VU-81f">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="105"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ugd-g0-H7d">
+                                <rect key="frame" x="0.0" y="88" width="414" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="khS-p8-mZd">
+                                    <size key="itemSize" width="100" height="69"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="CollectionCell" id="JHo-Pn-LpO" customClass="CollectionViewCell" customModule="Feel_Good_News" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1.5" width="100" height="69"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2EX-BA-Tpa">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="69"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="107" translatesAutoresizingMaskIntoConstraints="NO" id="dxg-Ed-x37">
+                                                    <rect key="frame" x="0.0" y="14" width="100" height="41"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                        <size key="customSize" width="100" height="69"/>
+                                        <connections>
+                                            <outlet property="collectionLabel" destination="dxg-Ed-x37" id="rN5-y5-BgY"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Ua-wW-IOq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="180" id="tt1-85-Ow5" customClass="HomeTableViewCell" customModule="Feel_Good_News" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="180"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tt1-85-Ow5" id="K2f-93-87y">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="sng-n1-G0F" id="glH-PB-fyI"/>
-                            <outlet property="delegate" destination="sng-n1-G0F" id="FfS-CZ-AZp"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="gqy-k6-nHs"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Feel Good News" id="bCw-MI-Opb"/>
                     <connections>
-                        <outlet property="tableView" destination="qd7-20-k8G" id="7g9-GR-N8o"/>
-                        <segue destination="ksE-dg-gvi" kind="show" identifier="TableViewArticle" id="wIC-8i-m7w"/>
+                        <outlet property="collectionView" destination="Ugd-g0-H7d" id="pEf-6j-Tdw"/>
+                        <outlet property="tableView" destination="WHg-ud-Zmh" id="Eoq-YC-BcJ"/>
+                        <segue destination="ksE-dg-gvi" kind="show" identifier="TableViewArticle" id="zGA-xN-rap"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ldg-72-Iok" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wg8-8W-WBw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="282.60869565217394" y="-18.080357142857142"/>
+            <point key="canvasLocation" x="363.768115942029" y="-18.080357142857142"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="jIu-gN-i76">
@@ -256,13 +254,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="uYF-FO-zwG" kind="relationship" relationship="rootViewController" id="Vs0-qm-MRx"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bru-3K-ag2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-455" y="658"/>
+            <point key="canvasLocation" x="-287" y="652"/>
         </scene>
         <!--Item-->
         <scene sceneID="twn-IK-cDl">
@@ -288,6 +283,9 @@
         <image name="house" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
