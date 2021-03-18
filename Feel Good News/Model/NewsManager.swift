@@ -22,7 +22,6 @@ struct NewsManager {
     var category = "general"
     var delegate: NewsManagerDelegate?
     
-    
 
     func parseData()  {
 
