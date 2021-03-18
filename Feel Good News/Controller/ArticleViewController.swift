@@ -9,7 +9,7 @@ import UIKit
 import WebKit
 
 class ArticleViewController: UIViewController, WKNavigationDelegate {
-    
+    //bind webview bounds so that it doesnt go under nav and tab controllers
     var webView: WKWebView!
     
     var articleURL: String?

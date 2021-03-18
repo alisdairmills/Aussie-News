@@ -10,14 +10,14 @@ import Foundation
 struct Articles: Decodable {
     
     let data: [Article]
-
+    
 }
-// data wont work. change Article to Data? go back over old newsapi code
+
 
 struct Article: Decodable {
     let author: String?
     let title: String?
-    let description: String?
+    let category: String?
     let url: String?
     let image: String?
     let published_at: String?
