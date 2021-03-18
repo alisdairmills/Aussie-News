@@ -21,8 +21,10 @@ struct NewsManager {
     let categories = ["general", "business", "entertainment", "health", "science", "sports", "technology"]
     var category = "general"
     var delegate: NewsManagerDelegate?
-    
+   
 
+    
+    
     func parseData()  {
 
         let urlString = "\(initialUrlString)\(HiddenContent().APIKey)&categories=\(category)&countries=au,us&languages=en&sort=popularity&limit=100"
@@ -36,7 +38,8 @@ struct NewsManager {
                    
                     let article = try JSONDecoder().decode(Articles.self, from: data)
                     self.delegate?.updateNews(self, news: article)
-                    
+                   
+                
                 } catch {
                     print(error)
                 }

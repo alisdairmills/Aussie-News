@@ -197,6 +197,7 @@
                                         <size key="customSize" width="100" height="69"/>
                                         <connections>
                                             <outlet property="collectionLabel" destination="dxg-Ed-x37" id="rN5-y5-BgY"/>
+                                            <outlet property="collectionView" destination="2EX-BA-Tpa" id="KI0-xw-H6x"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

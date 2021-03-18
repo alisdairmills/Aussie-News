@@ -15,14 +15,15 @@ class HomeViewController: UIViewController {
     var newsManager = NewsManager()
     var imageArray = [String]()
     var articles = [Article]()
-    
+    var positiveArticles = [Article]()
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         newsManager.parseData()
-        
+    
     }
     
     
@@ -59,9 +60,25 @@ class HomeViewController: UIViewController {
         //implement search function in here. action a new parse with keyword specifics
         
     }
-    func getSentiment() {
+    func getSentiment(text: String) -> Int {
     let tagger = NLTagger(tagSchemes: [.sentimentScore])
-        let score = tagger.tag(at: <#T##String.Index#>, unit: <#T##NLTokenUnit#>, scheme: <#T##NLTagScheme#>)
+        tagger.string = text
+        let (sentiment, _) = tagger.tag(at: text.startIndex, unit: .paragraph, scheme: .sentimentScore)
+        
+        let score = Double(sentiment?.rawValue ?? "0") ?? 0
+        
+        var sentimentLevel = 0
+        
+        if score < 0 {
+            sentimentLevel = 0
+        } else if score > 0 {
+            sentimentLevel = 1
+        } else {
+            sentimentLevel = -1
+        }
+        
+        print(sentimentLevel)
+        return sentimentLevel
         
     }
 }
@@ -72,6 +89,16 @@ extension HomeViewController: NewsManagerDelegate {
     func updateNews(_ newsManager: NewsManager, news: Articles) {
         DispatchQueue.main.async {
             self.articles = news.data
+            self.positiveArticles = news.data
+            self.positiveArticles.removeAll()
+            for i in self.articles {
+                if i.description != nil {
+                    if self.getSentiment(text: i.description!) == 1 {
+                        self.positiveArticles.append(i)
+                    }
+                }
+            }
+            print(self.positiveArticles)
             self.tableView.reloadData()
         }
     }
@@ -83,7 +110,7 @@ extension HomeViewController: NewsManagerDelegate {
 extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let number = articles.count
+        let number = positiveArticles.count
         return number
         
     }
@@ -96,7 +123,7 @@ extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
         if segue.identifier == "TableViewArticle" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let vc = segue.destination as! ArticleViewController
-                vc.articleURL = articles[indexPath.row].url
+                vc.articleURL = positiveArticles[indexPath.row].url
                 
             }
         }
@@ -107,7 +134,7 @@ extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
         return 182
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellArticles = articles[indexPath.row]
+        let cellArticles = positiveArticles[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellXib", for: indexPath) as! HomeTableViewCell
         
         cell.mainBackground.layer.cornerRadius = 10
@@ -155,6 +182,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         
         cell.collectionLabel.text = newsManager.categories[indexPath.row].capitalized
+        cell.collectionView.layer.cornerRadius = 10
         
         return cell
     }
