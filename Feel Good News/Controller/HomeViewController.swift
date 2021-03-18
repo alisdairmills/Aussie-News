@@ -7,17 +7,14 @@
 
 import UIKit
 import SDWebImage
+import NaturalLanguage
 
 
 class HomeViewController: UIViewController {
     
     var newsManager = NewsManager()
-    var authorArray = String()
-    var titleArray = [String]()
-    var urlArray = [String]()
     var imageArray = [String]()
-    var dateArray = [String]()
-    var articles: [Article]?
+    var articles = [Article]()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -25,11 +22,13 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         newsManager.parseData()
+        
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "questionmark"), style: .plain, target: self, action: #selector(search))
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -37,7 +36,7 @@ class HomeViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         newsManager.delegate = self
-        newsManager.parseData()
+   
     }
     
     func tableViewColour(category: String) -> UIColor {
@@ -55,6 +54,16 @@ class HomeViewController: UIViewController {
         }
        
     }
+
+    @objc func search() {
+        //implement search function in here. action a new parse with keyword specifics
+        
+    }
+    func getSentiment() {
+    let tagger = NLTagger(tagSchemes: [.sentimentScore])
+        let score = tagger.tag(at: <#T##String.Index#>, unit: <#T##NLTokenUnit#>, scheme: <#T##NLTagScheme#>)
+        
+    }
 }
 //MARK: - News Manager Delegate
 
@@ -64,8 +73,6 @@ extension HomeViewController: NewsManagerDelegate {
         DispatchQueue.main.async {
             self.articles = news.data
             self.tableView.reloadData()
-            self.authorArray.append(news.data[0].author ?? "")
-            print(self.authorArray)
         }
     }
 }
@@ -76,8 +83,8 @@ extension HomeViewController: NewsManagerDelegate {
 extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let number = articles?.count
-        return number ?? 4
+        let number = articles.count
+        return number
         
     }
     
@@ -89,7 +96,7 @@ extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
         if segue.identifier == "TableViewArticle" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let vc = segue.destination as! ArticleViewController
-                vc.articleURL = articles?[indexPath.row].url
+                vc.articleURL = articles[indexPath.row].url
                 
             }
         }
@@ -100,35 +107,38 @@ extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
         return 182
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellArticles = articles?[indexPath.row]
+        let cellArticles = articles[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellXib", for: indexPath) as! HomeTableViewCell
         
         cell.mainBackground.layer.cornerRadius = 10
         cell.mainBackground.layer.masksToBounds = true
         cell.mainBackground.layer.borderWidth = 2
         
+        cell.activitySpinner.startAnimating()
+        cell.activitySpinner.hidesWhenStopped = true
         //altering background color based on category
-        cell.mainBackground.backgroundColor = tableViewColour(category: cellArticles?.category ?? "general")
-
-       
-        cell.cellTitle.text = cellArticles?.title
+        cell.mainBackground.backgroundColor = tableViewColour(category: cellArticles.category ?? "general")
         
-        cell.cellCategory.text = cellArticles?.category
-        cell.cellSource.text = cellArticles?.source
+        cell.cellTitle.text = cellArticles.title
+        cell.cellCategory.text = cellArticles.category
+        cell.cellSource.text = cellArticles.source
         
+        SDWebImageDownloader.shared.downloadImage(
+            with: URL(string: cellArticles.image ?? ""),
+            options: [.highPriority],
+            progress: { (receivedSize, expectedSize, url) in
+            },
+            completed: { [weak self] (image, data, error, finished) in
+               if let image = image, finished {
+                cell.cellImage.image = image               }
+            })
         
-        
-        
-        
-        
-        //        cell.cellImage.sd_setImage(with: URL(string: imageArray?[indexPath.row] ?? "https://www.setra.com/hubfs/Sajni/crc_error.jpg"))
-        //        print(imageArray)
-        
-        //"https://www.setra.com/hubfs/Sajni/crc_error.jpg"
+//        cell.cellImage.sd_setImage(with: URL(string: cellArticles.image ?? ""))
+        if cell.cellImage != nil {
+            cell.activitySpinner.stopAnimating()
+        }
         return cell
     }
-    
-    
 }
 
 //MARK: - Collection View
@@ -155,7 +165,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         newsManager.category = newsManager.categories[indexPath.row]
         newsManager.parseData()
         tableView.reloadData()
-        
+    
     }
     
     
