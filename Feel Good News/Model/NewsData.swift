@@ -17,6 +17,7 @@ struct Articles: Decodable {
 struct Article: Decodable {
     let author: String?
     let title: String?
+    let description: String?
     let category: String?
     let url: String?
     let image: String?
