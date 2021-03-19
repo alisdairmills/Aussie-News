@@ -18,7 +18,7 @@
 		FA7BC59725D5FA5700439347 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7BC59525D5FA5700439347 /* Main.storyboard */; };
 		FA7BC59925D5FA5700439347 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7BC59825D5FA5700439347 /* Assets.xcassets */; };
 		FA7BC59C25D5FA5700439347 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7BC59A25D5FA5700439347 /* LaunchScreen.storyboard */; };
-		FA7BC5B225D6119C00439347 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BC5B125D6119C00439347 /* SettingsTableViewController.swift */; };
+		FA7BC5B225D6119C00439347 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BC5B125D6119C00439347 /* SettingsViewController.swift */; };
 		FA7BC5B525D611CA00439347 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BC5B425D611CA00439347 /* ArticleViewController.swift */; };
 		FA7BC5B825D6122A00439347 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BC5B725D6122A00439347 /* SearchViewController.swift */; };
 		FA9A917E25F1A39E00CE109A /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A917D25F1A39E00CE109A /* NewsData.swift */; };
@@ -42,7 +42,7 @@
 		FA7BC59825D5FA5700439347 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA7BC59B25D5FA5700439347 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA7BC59D25D5FA5700439347 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA7BC5B125D6119C00439347 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		FA7BC5B125D6119C00439347 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FA7BC5B425D611CA00439347 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		FA7BC5B725D6122A00439347 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FA9A917D25F1A39E00CE109A /* NewsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				FA7BC59325D5FA5700439347 /* HomeViewController.swift */,
-				FA7BC5B125D6119C00439347 /* SettingsTableViewController.swift */,
+				FA7BC5B125D6119C00439347 /* SettingsViewController.swift */,
 				FA39A6ED26041F83000EDB18 /* SavedViewController.swift */,
 				FA7BC5B425D611CA00439347 /* ArticleViewController.swift */,
 				FA7BC5B725D6122A00439347 /* SearchViewController.swift */,
@@ -265,7 +265,7 @@
 				FA7BC59425D5FA5700439347 /* HomeViewController.swift in Sources */,
 				FA7BC5B825D6122A00439347 /* SearchViewController.swift in Sources */,
 				FA7BC5B525D611CA00439347 /* ArticleViewController.swift in Sources */,
-				FA7BC5B225D6119C00439347 /* SettingsTableViewController.swift in Sources */,
+				FA7BC5B225D6119C00439347 /* SettingsViewController.swift in Sources */,
 				FA39A6EE26041F83000EDB18 /* SavedViewController.swift in Sources */,
 				FA7BC59025D5FA5700439347 /* AppDelegate.swift in Sources */,
 				FA9A917E25F1A39E00CE109A /* NewsData.swift in Sources */,

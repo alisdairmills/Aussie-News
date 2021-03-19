@@ -15,7 +15,6 @@ protocol NewsManagerDelegate {
 
 struct NewsManager {
     var delegate: NewsManagerDelegate?
-
     
     let initialUrlString =  "https://newsapi.org/v2/top-headlines?category="
     let categories = ["general", "business", "entertainment", "health", "science", "sports", "technology"]

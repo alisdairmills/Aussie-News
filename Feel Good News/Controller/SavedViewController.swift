@@ -8,36 +8,32 @@
 import UIKit
 import SDWebImage
 
+
+
 class SavedViewController: UIViewController {
+   
 
     @IBOutlet weak var tableView: UITableView!
     
-    
+    var articleViewController = ArticleViewController()
     var articles: [Article]?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         if articles != nil {
         self.tableView.reloadData()
            
         }
-        
+        print(articles?.count)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+
         tableView.register(UINib(nibName: "HomeTableViewXib", bundle: nil), forCellReuseIdentifier: "CellXib")
         
-    }
-    
-    @IBAction func buttonPressed(_ sender: UIButton) {
-        tableView.reloadData()
-        print(articles?.count)
-    }
-    
-    func appendArticles(article: Article) {
-        articles?.append(article)
     }
 }
 

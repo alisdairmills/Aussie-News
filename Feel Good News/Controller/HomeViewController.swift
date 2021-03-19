@@ -123,7 +123,7 @@ extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let vc = segue.destination as! ArticleViewController
                 vc.articleURL = positiveArticles[indexPath.row].url
-                vc.article = positiveArticles[indexPath.row]
+                vc.articleTitle = positiveArticles[indexPath.row].title
             }
         }
     }
