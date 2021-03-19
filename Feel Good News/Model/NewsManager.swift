@@ -14,20 +14,19 @@ protocol NewsManagerDelegate {
 }
 
 struct NewsManager {
-    
+    var delegate: NewsManagerDelegate?
 
-    let initialUrlString = "https://api.mediastack.com/v1/news?access_key="
-    let apiKey = HiddenContent().APIKey
+    
+    let initialUrlString =  "https://newsapi.org/v2/top-headlines?category="
     let categories = ["general", "business", "entertainment", "health", "science", "sports", "technology"]
     var category = "general"
-    var delegate: NewsManagerDelegate?
-   
+    let apiKey = "&apikey=\(HiddenContent().APIKey)"
+ var country = "&country=us"
 
-    
     
     func parseData()  {
 
-        let urlString = "\(initialUrlString)\(HiddenContent().APIKey)&categories=\(category)&countries=au,us&languages=en&sort=popularity&limit=100"
+        let urlString = "\(initialUrlString)\(category)\(apiKey)\(country)&pagesize=100"
         if let url = URL(string: urlString) {
             let session = URLSession.shared
             let task = session.dataTask(with: url) { (data, response, error) in
