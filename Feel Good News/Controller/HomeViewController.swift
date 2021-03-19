@@ -40,21 +40,21 @@ class HomeViewController: UIViewController {
    
     }
     
-    func tableViewColour(category: String) -> UIColor {
-        
-        switch category {
-        case "general": return UIColor.green
-        case "business": return UIColor.red
-        case "entertainment": return UIColor.yellow
-        case "health": return UIColor.blue
-        case "science": return UIColor.gray
-        case "sports": return UIColor.systemPink
-        case "technology": return UIColor.purple
-        default:
-            return UIColor.white
-        }
+//    func tableViewColour(category: String) -> UIColor {
+//
+//        switch category {
+//        case "general": return UIColor.green
+//        case "business": return UIColor.red
+//        case "entertainment": return UIColor.yellow
+//        case "health": return UIColor.blue
+//        case "science": return UIColor.gray
+//        case "sports": return UIColor.systemPink
+//        case "technology": return UIColor.purple
+//        default:
+//            return UIColor.white
+//        }
        
-    }
+    
 
     @objc func search() {
         //implement search function in here. action a new parse with keyword specifics
@@ -88,17 +88,16 @@ extension HomeViewController: NewsManagerDelegate {
     
     func updateNews(_ newsManager: NewsManager, news: Articles) {
         DispatchQueue.main.async {
-            self.articles = news.data
-            self.positiveArticles = news.data
-            self.positiveArticles.removeAll()
-            for i in self.articles {
-                if i.description != nil {
-                    if self.getSentiment(text: i.description!) == 1 {
-                        self.positiveArticles.append(i)
-                    }
-                }
-            }
-            print(self.positiveArticles)
+            self.articles = news.articles
+            self.positiveArticles = news.articles
+//            self.positiveArticles.removeAll()
+//            for i in self.articles {
+//                if i.content != nil {
+//                    if self.getSentiment(text: i.content!) == 1 {
+//                        self.positiveArticles.append(i)
+//                    }
+//                }
+//            }
             self.tableView.reloadData()
         }
     }
@@ -124,7 +123,7 @@ extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let vc = segue.destination as! ArticleViewController
                 vc.articleURL = positiveArticles[indexPath.row].url
-                
+                vc.article = positiveArticles[indexPath.row]
             }
         }
     }
@@ -140,18 +139,19 @@ extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
         cell.mainBackground.layer.cornerRadius = 10
         cell.mainBackground.layer.masksToBounds = true
         cell.mainBackground.layer.borderWidth = 2
+        cell.cellImage.layer.cornerRadius = 10
         
         cell.activitySpinner.startAnimating()
         cell.activitySpinner.hidesWhenStopped = true
         //altering background color based on category
-        cell.mainBackground.backgroundColor = tableViewColour(category: cellArticles.category ?? "general")
+//        cell.mainBackground.backgroundColor = tableViewColour(category: cellArticles.category ?? "general")
         
         cell.cellTitle.text = cellArticles.title
-        cell.cellCategory.text = cellArticles.category
-        cell.cellSource.text = cellArticles.source
+        //cell.cellCategory.text = cellArticles.category
+        cell.cellSource.text = cellArticles.source?.name
         
         SDWebImageDownloader.shared.downloadImage(
-            with: URL(string: cellArticles.image ?? ""),
+            with: URL(string: cellArticles.urlToImage ?? ""),
             options: [.highPriority],
             progress: { (receivedSize, expectedSize, url) in
             },
@@ -160,7 +160,6 @@ extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
                 cell.cellImage.image = image               }
             })
         
-//        cell.cellImage.sd_setImage(with: URL(string: cellArticles.image ?? ""))
         if cell.cellImage != nil {
             cell.activitySpinner.stopAnimating()
         }

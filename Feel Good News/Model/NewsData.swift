@@ -9,7 +9,7 @@ import Foundation
 
 struct Articles: Decodable {
     
-    let data: [Article]
+    let articles: [Article]
     
 }
 
@@ -18,14 +18,20 @@ struct Article: Decodable {
     let author: String?
     let title: String?
     let description: String?
-    let category: String?
+    let content: String?
     let url: String?
-    let image: String?
-    let published_at: String?
-    let source: String?
+    let urlToImage: String?
+    let publishedAt: String?
+    let source: Source?
    
     
 }
+
+struct Source: Decodable {
+    
+    let name: String?
+}
+
 
 
 
