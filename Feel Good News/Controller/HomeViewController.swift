@@ -30,7 +30,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(search))
         
         dateFormatter(date: "2021-03-21T17:30:00Z")
         tableView.delegate = self
@@ -43,33 +42,27 @@ class HomeViewController: UIViewController {
     }
     
 
-       
-    
-
-    @objc func search() {
-        
-    }
-    func getSentiment(text: String) -> Int {
-    let tagger = NLTagger(tagSchemes: [.sentimentScore])
-        tagger.string = text
-        let (sentiment, _) = tagger.tag(at: text.startIndex, unit: .paragraph, scheme: .sentimentScore)
-        
-        let score = Double(sentiment?.rawValue ?? "0") ?? 0
-        
-        var sentimentLevel = 0
-        
-        if score < 0 {
-            sentimentLevel = 0
-        } else if score > 0 {
-            sentimentLevel = 1
-        } else {
-            sentimentLevel = -1
-        }
-        
-        print(sentimentLevel)
-        return sentimentLevel
-        
-    }
+//    func getSentiment(text: String) -> Int {
+//    let tagger = NLTagger(tagSchemes: [.sentimentScore])
+//        tagger.string = text
+//        let (sentiment, _) = tagger.tag(at: text.startIndex, unit: .paragraph, scheme: .sentimentScore)
+//
+//        let score = Double(sentiment?.rawValue ?? "0") ?? 0
+//
+//        var sentimentLevel = 0
+//
+//        if score < 0 {
+//            sentimentLevel = 0
+//        } else if score > 0 {
+//            sentimentLevel = 1
+//        } else {
+//            sentimentLevel = -1
+//        }
+//
+//        print(sentimentLevel)
+//        return sentimentLevel
+//
+//    }
     func dateFormatter(date: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -113,8 +106,8 @@ extension HomeViewController: NewsManagerDelegate {
 extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let number = positiveArticles.count
-        return number
+       
+        return positiveArticles.count
         
     }
     
@@ -172,9 +165,6 @@ extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        <#code#>
-    }
 }
 
 //MARK: - Collection View
