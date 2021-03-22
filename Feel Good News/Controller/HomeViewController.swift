@@ -42,19 +42,7 @@ class HomeViewController: UIViewController {
    
     }
     
-//    func tableViewColour(category: String) -> UIColor {
-//
-//        switch category {
-//        case "general": return UIColor.green
-//        case "business": return UIColor.red
-//        case "entertainment": return UIColor.yellow
-//        case "health": return UIColor.blue
-//        case "science": return UIColor.gray
-//        case "sports": return UIColor.systemPink
-//        case "technology": return UIColor.purple
-//        default:
-//            return UIColor.white
-//        }
+
        
     
 
