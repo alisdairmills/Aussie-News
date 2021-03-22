@@ -8,17 +8,12 @@
 import UIKit
 import SDWebImage
 
-//implement a link to webview when article pressed
-//implement search functionality to change URL
-//build view if array is empty
-// implement text field delegate
-//search popup view of recent searches?
-
-
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var warningLabel: UILabel!
+    @IBOutlet weak var warningImage: UIImageView!
     var newsManager = NewsManager()
     
     var searchArray = [Article]()
@@ -31,24 +26,61 @@ class SearchViewController: UIViewController {
         tableView.register(UINib(nibName: "HomeTableViewXib", bundle: nil), forCellReuseIdentifier: "CellXib")
         newsManager.delegate = self
         tableView.isHidden = true
+        warningLabel.isHidden = true
+        warningImage.isHidden = true
+        
         searchTextField.placeholder = "Search..."
         searchTextField.leftView = UIImageView(image: UIImage(systemName: "magnifyingglass"))
     }
-    
-    @IBAction func cancelButtonPressed(_ sender: UIButton) {
+
+}
+
+//MARK: - UITextFieldDelegate
+
+extension SearchViewController: UITextFieldDelegate {
+    @IBAction func SearchButtonPressed(_ sender: UIButton) {
+        searchArray.removeAll()
         newsManager.search = searchTextField.text ?? "general"
         newsManager.parseData()
         tableView.reloadData()
         if searchArray.isEmpty {
             tableView.isHidden = true
-            //add a view here that nothing could be found
+            warningLabel.isHidden = false
+            warningImage.isHidden = false
+          
+        } else {
+        tableView.isHidden = false
+            warningLabel.isHidden = true
+            warningImage.isHidden = true
+        }
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField.text != "" {
+            return true
+        } else {
+            textField.placeholder = "Search here"
+            return false
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        searchArray.removeAll()
+        newsManager.search = searchTextField.text ?? "general"
+        newsManager.parseData()
+        tableView.reloadData()
+        if searchArray.isEmpty {
+            tableView.isHidden = true
+            warningLabel.isHidden = false
+            warningImage.isHidden = false
+          
         } else {
         tableView.isHidden = false
         }
     }
-    
-
-
 }
 
 //MARK: - NewsManager Delegate
@@ -57,7 +89,7 @@ extension SearchViewController: NewsManagerDelegate {
     func updateNews(_ newsManager: NewsManager, news: Articles) {
         self.searchArray = news.articles
     }
-    
+
     
 }
 
@@ -69,6 +101,20 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchArray.count
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SearchSegue" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let vc = segue.destination as! ArticleViewController
+                vc.articleURL = searchArray[indexPath.row].url
+                vc.articleURL = searchArray[indexPath.row].title
+                vc.articleName = searchArray[indexPath.row].source?.name
+            }
+        }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "SearchSegue", sender: self)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
