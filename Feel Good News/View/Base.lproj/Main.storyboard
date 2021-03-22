@@ -211,16 +211,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="yes" returnKeyType="search"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ap8-tL-G2c">
-                                <rect key="frame" x="334" y="106" width="60" height="30"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="doc.text.magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wdQ-DQ-KoW">
+                                <rect key="frame" x="61" y="241" width="293" height="172"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Search"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="That Search returned no results. Please try again. " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="w7a-M3-NgT">
+                                <rect key="frame" x="61" y="421" width="293" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ap8-tL-G2c">
+                                <rect key="frame" x="355" y="104" width="39" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="magnifyingglass" catalog="system"/>
                                 <connections>
-                                    <action selector="cancelButtonPressed:" destination="Rm0-za-y6x" eventType="touchUpInside" id="zDa-k3-fyd"/>
+                                    <action selector="SearchButtonPressed:" destination="Rm0-za-y6x" eventType="touchUpInside" id="zDa-k3-fyd"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X7b-gB-LxC">
-                                <rect key="frame" x="0.0" y="176" width="414" height="644"/>
+                                <rect key="frame" x="0.0" y="169" width="414" height="644"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -242,6 +254,8 @@
                     <connections>
                         <outlet property="searchTextField" destination="siT-DS-eqv" id="RaU-bn-D0N"/>
                         <outlet property="tableView" destination="X7b-gB-LxC" id="9ky-cv-yUQ"/>
+                        <outlet property="warningImage" destination="wdQ-DQ-KoW" id="bAj-7J-UNU"/>
+                        <outlet property="warningLabel" destination="w7a-M3-NgT" id="JQC-JF-Vre"/>
                         <segue destination="ksE-dg-gvi" kind="show" identifier="SearchSegue" id="9Oq-y6-zMQ"/>
                     </connections>
                 </viewController>
@@ -361,6 +375,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
+        <image name="doc.text.magnifyingglass" catalog="system" width="113" height="128"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>

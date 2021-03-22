@@ -23,6 +23,7 @@ struct NewsManager {
  var country = "&country=au"
     var search: String = ""
     
+    
     func parseData()  {
 
         let urlString = "\(initialUrlString)\(category)\(apiKey)\(country)&pagesize=100"
