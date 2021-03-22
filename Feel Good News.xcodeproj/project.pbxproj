@@ -48,6 +48,7 @@
 		FA9A917D25F1A39E00CE109A /* NewsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
 		FA9A918E25F6FAED00CE109A /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		FA9A91A525F99C1E00CE109A /* HomeTableViewXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewXib.xib; sourceTree = "<group>"; };
+		FAE0F62A26084F56002F216A /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +108,7 @@
 				FA7BC5A725D6085500439347 /* Controller */,
 				FA7BC59825D5FA5700439347 /* Assets.xcassets */,
 				FA7BC59D25D5FA5700439347 /* Info.plist */,
+				FAE0F62826084E30002F216A /* Fonts */,
 			);
 			path = "Feel Good News";
 			sourceTree = "<group>";
@@ -143,6 +145,15 @@
 				FA2F3CE225F0955800B5DB2B /* HiddenContent.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		FAE0F62826084E30002F216A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FAE0F62A26084F56002F216A /* SF-Pro.ttf */,
+			);
+			name = Fonts;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
