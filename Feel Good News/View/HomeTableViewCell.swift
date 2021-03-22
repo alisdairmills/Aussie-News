@@ -11,7 +11,6 @@ class HomeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var cellTitle: UILabel!
-    @IBOutlet weak var cellCategory: UILabel!
     @IBOutlet weak var mainBackground: UIView!
     @IBOutlet weak var cellDate: UILabel!
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!

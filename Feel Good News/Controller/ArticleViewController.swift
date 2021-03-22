@@ -14,6 +14,7 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView!
     var articleURL: String?
     var articleTitle: String?
+    var articleName: String?
     
     override func loadView() {
         webView = WKWebView()
@@ -23,10 +24,12 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Share", style: .plain, target: self, action: #selector(share))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(share))
         if let safeURL = articleURL {
         if let url = URL(string: safeURL) {
         webView.load(URLRequest(url: url))
+            navigationItem.title = articleName
+        
             
         }
     }
