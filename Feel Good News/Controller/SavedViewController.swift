@@ -50,15 +50,13 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellXib", for: indexPath) as! HomeTableViewCell
-        
+      
         let cellArticles = articles?[indexPath.row]
         cell.mainBackground.layer.cornerRadius = 10
         cell.mainBackground.layer.masksToBounds = true
         cell.mainBackground.layer.borderWidth = 2
         cell.cellImage.layer.cornerRadius = 10
-        
-        cell.activitySpinner.startAnimating()
-        cell.activitySpinner.hidesWhenStopped = true
+       
 
         cell.cellTitle.text = cellArticles?.title
      
@@ -91,3 +89,4 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
     
     
 }
+

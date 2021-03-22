@@ -20,8 +20,8 @@ struct NewsManager {
     let categories = ["general", "business", "entertainment", "health", "science", "sports", "technology"]
     var category = "general"
     let apiKey = "&apikey=\(HiddenContent().APIKey)"
- var country = "&country=us"
-
+ var country = "&country=au"
+    var search: String = ""
     
     func parseData()  {
 
