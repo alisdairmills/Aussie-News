@@ -18,7 +18,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wRd-mI-29V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2189.8550724637685" y="262.5"/>
+            <point key="canvasLocation" x="828" y="225"/>
         </scene>
         <!--Saved Articles-->
         <scene sceneID="JG6-Qu-UNB">
@@ -62,7 +62,6 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Q8b-hw-Ve2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" image="house.fill" catalog="system" id="d6N-Q1-uKo">
-                        <color key="badgeColor" red="0.086274509803921567" green="0.29019607843137252" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
                         <imageReference key="selectedImage" image="house.fill" catalog="system" renderingMode="original"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -70,7 +69,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.73725490196078436" green="0.82745098039215681" blue="0.90588235294117647" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.73725490196078436" green="0.82745098039215681" blue="0.90588235294117647" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.14509803921568626" green="0.27843137254901962" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -92,23 +91,23 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ugd-g0-H7d">
                                 <rect key="frame" x="0.0" y="88" width="414" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.73725490196078436" green="0.82745098039215681" blue="0.90588235294117647" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.14509803921568626" green="0.27843137254901962" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="khS-p8-mZd">
-                                    <size key="itemSize" width="100" height="69"/>
+                                    <size key="itemSize" width="95" height="57"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="CollectionCell" id="JHo-Pn-LpO" customClass="CollectionViewCell" customModule="Feel_Good_News" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-11" width="100" height="69"/>
+                                        <rect key="frame" x="0.0" y="-5" width="95" height="57"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2EX-BA-Tpa">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="69"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="95" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="107" translatesAutoresizingMaskIntoConstraints="NO" id="dxg-Ed-x37">
-                                                    <rect key="frame" x="0.0" y="14" width="100" height="41"/>
+                                                    <rect key="frame" x="0.0" y="8" width="95" height="57"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -116,8 +115,7 @@
                                                 </label>
                                             </subviews>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" red="0.30196078431372547" green="0.46666666666666667" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
-                                        <size key="customSize" width="100" height="69"/>
+                                        <size key="customSize" width="95" height="57"/>
                                         <connections>
                                             <outlet property="collectionLabel" destination="dxg-Ed-x37" id="rN5-y5-BgY"/>
                                             <outlet property="collectionView" destination="2EX-BA-Tpa" id="KI0-xw-H6x"/>
@@ -128,7 +126,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WHg-ud-Zmh">
                                 <rect key="frame" x="0.0" y="136" width="414" height="658"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.73725490196078436" green="0.82745098039215681" blue="0.90588235294117647" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.14509803921568626" green="0.27843137254901962" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="105" id="mE9-9I-gyW" customClass="HomeTableViewCell" customModule="Feel_Good_News" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="105"/>
@@ -142,7 +140,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Ua-wW-IOq"/>
-                        <color key="backgroundColor" red="0.73725490196078436" green="0.82745098039215681" blue="0.90588235294117647" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.14509803921568626" green="0.27843137254901962" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="News" id="VT3-Uq-ke5"/>
                     <connections>
@@ -181,6 +179,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b7h-6v-1Fl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="bookmark.fill" catalog="system" id="3JD-E0-PBu">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <imageReference key="selectedImage" image="bookmark.fill" catalog="system" renderingMode="original"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -354,7 +353,9 @@
         <scene sceneID="f3e-Bu-vmL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="61I-ou-ryt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="aBA-nH-Lgx"/>
+                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="aBA-nH-Lgx">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="COT-aF-QYF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -371,7 +372,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9Oq-y6-zMQ"/>
+        <segue reference="zGA-xN-rap"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>

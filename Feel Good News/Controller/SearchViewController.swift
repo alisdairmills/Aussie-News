@@ -28,7 +28,8 @@ class SearchViewController: UIViewController {
         tableView.isHidden = true
         warningLabel.isHidden = true
         warningImage.isHidden = true
-        
+        //newsManager.parseData()
+        print(searchArray.count)
         searchTextField.placeholder = "Search..."
         searchTextField.leftView = UIImageView(image: UIImage(systemName: "magnifyingglass"))
     }
@@ -39,19 +40,23 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UITextFieldDelegate {
     @IBAction func SearchButtonPressed(_ sender: UIButton) {
-        searchArray.removeAll()
-        newsManager.search = searchTextField.text ?? "general"
+        //searchArray.removeAll()
+        newsManager.search = "&q=\(searchTextField.text!)"
+        
         newsManager.parseData()
+        print(searchArray.count)
         tableView.reloadData()
         if searchArray.isEmpty {
             tableView.isHidden = true
             warningLabel.isHidden = false
             warningImage.isHidden = false
+            print("empty")
           
         } else {
         tableView.isHidden = false
             warningLabel.isHidden = true
             warningImage.isHidden = true
+            print("not empty")
         }
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -68,8 +73,8 @@ extension SearchViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        searchArray.removeAll()
-        newsManager.search = searchTextField.text ?? "general"
+        //searchArray.removeAll()
+        newsManager.search = "&q=\(searchTextField.text)"
         newsManager.parseData()
         tableView.reloadData()
         if searchArray.isEmpty {
@@ -87,7 +92,12 @@ extension SearchViewController: UITextFieldDelegate {
 
 extension SearchViewController: NewsManagerDelegate {
     func updateNews(_ newsManager: NewsManager, news: Articles) {
-        self.searchArray = news.articles
+        
+        DispatchQueue.main.async {
+            self.searchArray = news.articles
+            self.tableView.reloadData()
+        }
+        
     }
 
     
@@ -101,6 +111,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 182
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -152,9 +166,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 182
-    }
+    
     
 
 

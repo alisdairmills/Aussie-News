@@ -125,10 +125,10 @@
 		FA7BC5A625D6084D00439347 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FA7BC59A25D5FA5700439347 /* LaunchScreen.storyboard */,
 				FA7BC59525D5FA5700439347 /* Main.storyboard */,
 				FA9A918E25F6FAED00CE109A /* HomeTableViewCell.swift */,
 				FA9A91A525F99C1E00CE109A /* HomeTableViewXib.xib */,
-				FA7BC59A25D5FA5700439347 /* LaunchScreen.storyboard */,
 				FA72291525FF0AEC00D00D4D /* CollectionViewCell.swift */,
 			);
 			path = View;
