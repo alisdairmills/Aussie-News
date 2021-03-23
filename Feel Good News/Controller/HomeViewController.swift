@@ -29,16 +29,13 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        dateFormatter(date: "2021-03-21T17:30:00Z")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "HomeTableViewXib", bundle: nil), forCellReuseIdentifier: "CellXib")
         collectionView.delegate = self
         collectionView.dataSource = self
         newsManager.delegate = self
-   
+        
     }
     
 
@@ -122,6 +119,7 @@ extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
                 vc.articleURL = positiveArticles[indexPath.row].url
                 vc.articleTitle = positiveArticles[indexPath.row].title
                 vc.articleName = positiveArticles[indexPath.row].source?.name
+                vc.article = positiveArticles[indexPath.row]
             }
         }
     }
@@ -138,15 +136,10 @@ extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
         let color2 = UIColor(displayP3Red: 0.44, green: 0.64, blue: 0.70, alpha: 1.00)
         
         if indexPath.row % 2 == 0 {
-            cell.mainBackground.backgroundColor = color1
-        } else { cell.mainBackground.backgroundColor = color2
+            cell.contentView.backgroundColor = color1
+        } else { cell.contentView.backgroundColor = color2
         }
-        
-        
-        
-        cell.mainBackground.layer.cornerRadius = 10
-        cell.mainBackground.layer.masksToBounds = true
-        cell.mainBackground.layer.borderWidth = 1
+    
         cell.cellImage.layer.cornerRadius = 10
         cell.cellTitle.text = cellArticles.title
         cell.cellDate.text = dateArray[indexPath.row]

@@ -8,6 +8,10 @@
 import UIKit
 import WebKit
 
+protocol ArticleViewControllerDelegate: NSObjectProtocol {
+    func passData(source: ArticleViewController, data: [Article])
+}
+
 
 class ArticleViewController: UIViewController, WKNavigationDelegate {
     //bind webview bounds so that it doesnt go under nav and tab controllers
@@ -15,6 +19,9 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
     var articleURL: String?
     var articleTitle: String?
     var articleName: String?
+    var article: Article?
+    var savedArticles = [Article]()
+    weak var delegate: ArticleViewControllerDelegate?
     
     override func loadView() {
         webView = WKWebView()
@@ -24,13 +31,17 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(share))
+       let shareButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(share))
+        let saveButton = UIBarButtonItem(image: UIImage(systemName: "bookmark"), style: .plain, target: self, action: #selector(save))
+        navigationItem.rightBarButtonItems = [shareButton, saveButton]
+        
+      
+       
+        
         if let safeURL = articleURL {
         if let url = URL(string: safeURL) {
         webView.load(URLRequest(url: url))
             navigationItem.title = articleName
-        
-            
         }
     }
     }
@@ -43,5 +54,11 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
         present(ac, animated: true)
     }
    
+    @objc func save() {
+        //use save status bar to change bookmark to fill and append article. if bookmark is already filled then another tap will remove the article and change bookmark back to unfilled
+        savedArticles.append(article!)
+        self.delegate?.passData(source: self, data: savedArticles)
+    }
+    
     }
 

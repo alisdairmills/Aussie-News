@@ -11,32 +11,36 @@ import SDWebImage
 
 
 class SavedViewController: UIViewController {
-   
 
     @IBOutlet weak var tableView: UITableView!
-    
-    var articleViewController = ArticleViewController()
-    var articles: [Article]?
+
+    let articleViewController = ArticleViewController()
+    var articles = [Article]()
+
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        if articles != nil {
-        self.tableView.reloadData()
-           
-        }
-        print(articles?.count)
+      
+        
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-
         tableView.register(UINib(nibName: "HomeTableViewXib", bundle: nil), forCellReuseIdentifier: "CellXib")
-        
+        tableView.reloadData()
+        articleViewController.delegate = self
     }
 }
 
+//MARK: - ArticleViewControllerDelegate
+
+extension SavedViewController: ArticleViewControllerDelegate {
+    func passData(source: ArticleViewController, data: [Article]) {
+        self.articles = data
+        print(articles)
+    }
+}
 
 //MARK: - table view
 extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
@@ -45,25 +49,25 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
         return 182
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articles?.count ?? 1
+        return articles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellXib", for: indexPath) as! HomeTableViewCell
       
-        let cellArticles = articles?[indexPath.row]
+        let cellArticles = articles[indexPath.row]
         cell.mainBackground.layer.cornerRadius = 10
         cell.mainBackground.layer.masksToBounds = true
         cell.mainBackground.layer.borderWidth = 2
         cell.cellImage.layer.cornerRadius = 10
        
 
-        cell.cellTitle.text = cellArticles?.title
+        cell.cellTitle.text = cellArticles.title
      
-        cell.cellSource.text = cellArticles?.source?.name
+        cell.cellSource.text = cellArticles.source?.name
         
         SDWebImageDownloader.shared.downloadImage(
-            with: URL(string: cellArticles?.urlToImage ?? ""),
+            with: URL(string: cellArticles.urlToImage ?? ""),
             options: [.highPriority],
             progress: { (receivedSize, expectedSize, url) in
             },
@@ -72,9 +76,6 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.cellImage.image = image               }
             })
         
-        if cell.cellImage != nil {
-            cell.activitySpinner.stopAnimating()
-        }
         return cell
     }
         
@@ -82,11 +83,13 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
         if segue.identifier == "SavedSegue" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let vc = segue.destination as! ArticleViewController
-                vc.articleURL = articles?[indexPath.row].url
+                vc.articleURL = articles[indexPath.row].url
             }
         }
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "SavedSegue", sender: self)
+    }
     
 }
 

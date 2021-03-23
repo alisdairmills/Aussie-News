@@ -23,10 +23,11 @@ struct NewsManager {
  var country = "&country=au"
     var search: String = ""
     
+    var savedArticle = [Article]()
     
     func parseData()  {
 
-        let urlString = "\(initialUrlString)\(category)\(apiKey)\(country)&pagesize=100"
+        let urlString = "\(initialUrlString)\(category)\(apiKey)\(country)&pagesize=100\(search)"
         if let url = URL(string: urlString) {
             let session = URLSession.shared
             let task = session.dataTask(with: url) { (data, response, error) in
@@ -50,8 +51,6 @@ struct NewsManager {
 
     }
 
-    // for collectionView categories on home page. Each button pressed passes to indexpath to the func which is then used in the newsmanager catwegories array.
-   
 
 }
 
