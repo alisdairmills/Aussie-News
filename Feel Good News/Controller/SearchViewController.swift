@@ -11,33 +11,43 @@ import SDWebImage
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var dateArray = [String]()
-    @IBOutlet weak var warningLabel: UILabel!
-    @IBOutlet weak var warningImage: UIImageView!
-    var newsManager = NewsManager()
-    
-    var searchArray = [Article]()
+   
     @IBOutlet weak var searchTextField: UITextField!
+    
+    var newsManager = NewsManager()
+    var dateArray = [String]()
+    var searchArray = [Article]()
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "HomeTableViewXib", bundle: nil), forCellReuseIdentifier: "CellXib")
+        searchTextField.delegate = self
         newsManager.delegate = self
-        tableView.isHidden = true
-        warningLabel.isHidden = true
-        warningImage.isHidden = true
-        //newsManager.parseData()
-        print(searchArray.count)
-        searchTextField.placeholder = "Search..."
+        
+        //implemented this to make the placeholder text darker and more legible against a white background
+        searchTextField.attributedPlaceholder = NSAttributedString(string: "Search...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        
         searchTextField.leftView = UIImageView(image: UIImage(systemName: "magnifyingglass"))
+        
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
+    
+    @objc func dismissOnTapOutside() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func dateFormatter(date: String) -> String {
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let date = dateFormatter.date(from: date)
         dateFormatter.dateFormat = "MMM d, yyyy"
+        
         return dateFormatter.string(from: date!)
     }
 }
@@ -45,55 +55,35 @@ class SearchViewController: UIViewController {
 //MARK: - UITextFieldDelegate
 
 extension SearchViewController: UITextFieldDelegate {
+   
+    
     @IBAction func SearchButtonPressed(_ sender: UIButton) {
-        //searchArray.removeAll()
-        newsManager.search = "&q=\(searchTextField.text!)"
-        
-        newsManager.parseData()
-        print(searchArray.count)
+        newsManager.search = "&q=\(searchTextField.text ?? "")"
+        newsManager.parseData(option: "Search")
         tableView.reloadData()
-        if searchArray.isEmpty {
-            tableView.isHidden = true
-            warningLabel.isHidden = false
-            warningImage.isHidden = false
-            print("empty")
-          
-        } else {
-        tableView.isHidden = false
-            warningLabel.isHidden = true
-            warningImage.isHidden = true
-            print("not empty")
-        }
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.endEditing(true)
         return true
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if textField.text != "" {
+       
+            newsManager.search = "&q=\(searchTextField.text ?? "")"
+            newsManager.parseData(option: "Search")
+            tableView.reloadData()
             return true
-        } else {
-            textField.placeholder = "Search here"
-            return false
         }
-    }
+    
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        //searchArray.removeAll()
-        newsManager.search = "&q=\(searchTextField.text)"
-        newsManager.parseData()
+        newsManager.search = "&q=\(searchTextField.text!)"
+        newsManager.parseData(option: "Search")
         tableView.reloadData()
-        if searchArray.isEmpty {
-            tableView.isHidden = true
-            warningLabel.isHidden = false
-            warningImage.isHidden = false
-          
-        } else {
-        tableView.isHidden = false
-        }
     }
-}
 
+}
 //MARK: - NewsManager Delegate
 
 extension SearchViewController: NewsManagerDelegate {
@@ -108,10 +98,7 @@ extension SearchViewController: NewsManagerDelegate {
             }
             self.tableView.reloadData()
         }
-        
     }
-
-    
 }
 
 
@@ -119,13 +106,12 @@ extension SearchViewController: NewsManagerDelegate {
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchArray.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 182
+        return UITableView.automaticDimension
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

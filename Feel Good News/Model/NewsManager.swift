@@ -16,18 +16,24 @@ protocol NewsManagerDelegate {
 struct NewsManager {
     var delegate: NewsManagerDelegate?
     
-    let initialUrlString =  "https://newsapi.org/v2/top-headlines?category="
+    let generalURLString =  "https://newsapi.org/v2/top-headlines?"
+    let searchURLString = "https://newsapi.org/v2/everything?"
     let categories = ["general", "business", "entertainment", "health", "science", "sports", "technology"]
     var category = "general"
-    let apiKey = "&apikey=\(HiddenContent().APIKey)"
- var country = "&country=au"
-    var search: String = ""
-    
-    var savedArticle = [Article]()
-    
-    func parseData()  {
+    let apiKey = "apikey=\(HiddenContent().APIKey)"
+    let country = "&country=au"
+    var search = ""
+    let pageSize = "&pagesize=100"
 
-        let urlString = "\(initialUrlString)\(category)\(apiKey)\(country)&pagesize=100\(search)"
+    
+    func parseData(option: String)  {
+     var urlString = "\(generalURLString)\(apiKey)\(country)\(pageSize)"
+      if option == "Search" {
+            urlString = urlString + search
+      } else if option == "General" {
+        urlString = urlString + "&category=\(category)"
+      }
+        
         if let url = URL(string: urlString) {
             let session = URLSession.shared
             let task = session.dataTask(with: url) { (data, response, error) in
