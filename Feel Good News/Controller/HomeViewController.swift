@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        newsManager.parseData() //move this to viewdidload?
+        newsManager.parseData(option: "General")
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -143,7 +143,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! CollectionViewCell
-        
+        cell.lines.isHidden = true
         let color1 = UIColor(displayP3Red: 0.29, green: 0.41, blue: 0.50, alpha: 1.00)
         let color2 = UIColor(displayP3Red: 0.44, green: 0.64, blue: 0.70, alpha: 1.00)
         
@@ -154,19 +154,28 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.collectionLabel.text = newsManager.categories[indexPath.row].capitalized
         cell.collectionView.layer.cornerRadius = 10
         
+    
+        
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? CollectionViewCell {
+            cell.lines.isHidden = false
             
             newsManager.category = newsManager.categories[indexPath.row]
-            newsManager.parseData()
+            newsManager.parseData(option: "General")
             tableView.reloadData()
             
+            tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            
         }
-        
-        
-        
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? CollectionViewCell {
+            cell.lines.isHidden = true
     }
     
+    
+}
 }
