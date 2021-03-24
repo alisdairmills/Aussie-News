@@ -11,7 +11,7 @@ import SDWebImage
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
+    var dateArray = [String]()
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var warningImage: UIImageView!
     var newsManager = NewsManager()
@@ -33,7 +33,13 @@ class SearchViewController: UIViewController {
         searchTextField.placeholder = "Search..."
         searchTextField.leftView = UIImageView(image: UIImage(systemName: "magnifyingglass"))
     }
-
+    func dateFormatter(date: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let date = dateFormatter.date(from: date)
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        return dateFormatter.string(from: date!)
+    }
 }
 
 //MARK: - UITextFieldDelegate
@@ -95,6 +101,11 @@ extension SearchViewController: NewsManagerDelegate {
         
         DispatchQueue.main.async {
             self.searchArray = news.articles
+            for i in self.searchArray {
+                if i.publishedAt != nil {
+                    self.dateArray.append(self.dateFormatter(date: i.publishedAt!))
+                }
+            }
             self.tableView.reloadData()
         }
         
@@ -122,8 +133,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let vc = segue.destination as! ArticleViewController
                 vc.articleURL = searchArray[indexPath.row].url
-                vc.articleURL = searchArray[indexPath.row].title
+                vc.articleTitle = searchArray[indexPath.row].title
                 vc.articleName = searchArray[indexPath.row].source?.name
+                vc.article = searchArray[indexPath.row]
             }
         }
     }
@@ -140,16 +152,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let color2 = UIColor(displayP3Red: 0.44, green: 0.64, blue: 0.70, alpha: 1.00)
         
         if indexPath.row % 2 == 0 {
-            cell.mainBackground.backgroundColor = color1
-        } else { cell.mainBackground.backgroundColor = color2
+            cell.contentView.backgroundColor = color1
+        } else { cell.contentView.backgroundColor = color2
         }
-        
-        cell.mainBackground.layer.cornerRadius = 10
-        cell.mainBackground.layer.masksToBounds = true
-        cell.mainBackground.layer.borderWidth = 1
         cell.cellImage.layer.cornerRadius = 10
         cell.cellTitle.text = cellArticles.title
-        //cell.cellDate.text = dateArray[indexPath.row]
+        cell.cellDate.text = dateArray[indexPath.row]
         cell.cellSource.text = cellArticles.source?.name
         
         SDWebImageDownloader.shared.downloadImage(
@@ -158,8 +166,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             progress: { (receivedSize, expectedSize, url) in
             },
             completed: { [weak self] (image, data, error, finished) in
-               if let image = image, finished {
-                cell.cellImage.image = image               }
+                if let image = image, finished {
+                    cell.cellImage.image = image               }
             })
         
         return cell

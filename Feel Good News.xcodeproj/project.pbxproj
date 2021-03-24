@@ -10,20 +10,20 @@
 		D81DCC16BDC24EE26E138CDA /* Pods_Feel_Good_News.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59EEF02448403B2C134F1E81 /* Pods_Feel_Good_News.framework */; };
 		FA2F3CE025F0953100B5DB2B /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F3CDF25F0953100B5DB2B /* NewsManager.swift */; };
 		FA2F3CE325F0955800B5DB2B /* HiddenContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F3CE225F0955800B5DB2B /* HiddenContent.swift */; };
-		FA39A6EE26041F83000EDB18 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39A6ED26041F83000EDB18 /* SavedViewController.swift */; };
 		FA72291625FF0AEC00D00D4D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72291525FF0AEC00D00D4D /* CollectionViewCell.swift */; };
 		FA7BC59025D5FA5700439347 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BC58F25D5FA5700439347 /* AppDelegate.swift */; };
 		FA7BC59225D5FA5700439347 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BC59125D5FA5700439347 /* SceneDelegate.swift */; };
 		FA7BC59425D5FA5700439347 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BC59325D5FA5700439347 /* HomeViewController.swift */; };
 		FA7BC59725D5FA5700439347 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7BC59525D5FA5700439347 /* Main.storyboard */; };
 		FA7BC59925D5FA5700439347 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7BC59825D5FA5700439347 /* Assets.xcassets */; };
-		FA7BC59C25D5FA5700439347 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7BC59A25D5FA5700439347 /* LaunchScreen.storyboard */; };
 		FA7BC5B225D6119C00439347 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BC5B125D6119C00439347 /* SettingsViewController.swift */; };
 		FA7BC5B525D611CA00439347 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BC5B425D611CA00439347 /* ArticleViewController.swift */; };
 		FA7BC5B825D6122A00439347 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BC5B725D6122A00439347 /* SearchViewController.swift */; };
 		FA9A917E25F1A39E00CE109A /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A917D25F1A39E00CE109A /* NewsData.swift */; };
 		FA9A918F25F6FAED00CE109A /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A918E25F6FAED00CE109A /* HomeTableViewCell.swift */; };
 		FA9A91A725F99C1E00CE109A /* HomeTableViewXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9A91A525F99C1E00CE109A /* HomeTableViewXib.xib */; };
+		FAE0F645260ABAE9002F216A /* App Icons - App Store-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE0F644260ABAE9002F216A /* App Icons - App Store-1024.png */; };
+		FAE0F65E260AC0FB002F216A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE0F65D260AC0FB002F216A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,6 @@
 		F7308F69AE8B37B4D68F1415 /* Pods-Feel Good News.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feel Good News.debug.xcconfig"; path = "Target Support Files/Pods-Feel Good News/Pods-Feel Good News.debug.xcconfig"; sourceTree = "<group>"; };
 		FA2F3CDF25F0953100B5DB2B /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
 		FA2F3CE225F0955800B5DB2B /* HiddenContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenContent.swift; sourceTree = "<group>"; };
-		FA39A6ED26041F83000EDB18 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		FA72291525FF0AEC00D00D4D /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		FA7BC58C25D5FA5700439347 /* Feel Good News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feel Good News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7BC58F25D5FA5700439347 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +39,6 @@
 		FA7BC59325D5FA5700439347 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FA7BC59625D5FA5700439347 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA7BC59825D5FA5700439347 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FA7BC59B25D5FA5700439347 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA7BC59D25D5FA5700439347 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA7BC5B125D6119C00439347 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FA7BC5B425D611CA00439347 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +47,8 @@
 		FA9A918E25F6FAED00CE109A /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		FA9A91A525F99C1E00CE109A /* HomeTableViewXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewXib.xib; sourceTree = "<group>"; };
 		FAE0F62A26084F56002F216A /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
+		FAE0F644260ABAE9002F216A /* App Icons - App Store-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App Icons - App Store-1024.png"; sourceTree = "<group>"; };
+		FAE0F65D260AC0FB002F216A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +107,7 @@
 				FA7BC5A625D6084D00439347 /* View */,
 				FA7BC5A725D6085500439347 /* Controller */,
 				FA7BC59825D5FA5700439347 /* Assets.xcassets */,
+				FAE0F644260ABAE9002F216A /* App Icons - App Store-1024.png */,
 				FA7BC59D25D5FA5700439347 /* Info.plist */,
 				FAE0F62826084E30002F216A /* Fonts */,
 			);
@@ -125,7 +126,7 @@
 		FA7BC5A625D6084D00439347 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FA7BC59A25D5FA5700439347 /* LaunchScreen.storyboard */,
+				FAE0F65D260AC0FB002F216A /* LaunchScreen.storyboard */,
 				FA7BC59525D5FA5700439347 /* Main.storyboard */,
 				FA9A918E25F6FAED00CE109A /* HomeTableViewCell.swift */,
 				FA9A91A525F99C1E00CE109A /* HomeTableViewXib.xib */,
@@ -139,7 +140,6 @@
 			children = (
 				FA7BC59325D5FA5700439347 /* HomeViewController.swift */,
 				FA7BC5B125D6119C00439347 /* SettingsViewController.swift */,
-				FA39A6ED26041F83000EDB18 /* SavedViewController.swift */,
 				FA7BC5B425D611CA00439347 /* ArticleViewController.swift */,
 				FA7BC5B725D6122A00439347 /* SearchViewController.swift */,
 				FA2F3CE225F0955800B5DB2B /* HiddenContent.swift */,
@@ -215,9 +215,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA7BC59C25D5FA5700439347 /* LaunchScreen.storyboard in Resources */,
 				FA9A91A725F99C1E00CE109A /* HomeTableViewXib.xib in Resources */,
 				FA7BC59925D5FA5700439347 /* Assets.xcassets in Resources */,
+				FAE0F645260ABAE9002F216A /* App Icons - App Store-1024.png in Resources */,
+				FAE0F65E260AC0FB002F216A /* LaunchScreen.storyboard in Resources */,
 				FA7BC59725D5FA5700439347 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,7 +278,6 @@
 				FA7BC5B825D6122A00439347 /* SearchViewController.swift in Sources */,
 				FA7BC5B525D611CA00439347 /* ArticleViewController.swift in Sources */,
 				FA7BC5B225D6119C00439347 /* SettingsViewController.swift in Sources */,
-				FA39A6EE26041F83000EDB18 /* SavedViewController.swift in Sources */,
 				FA7BC59025D5FA5700439347 /* AppDelegate.swift in Sources */,
 				FA9A917E25F1A39E00CE109A /* NewsData.swift in Sources */,
 				FA72291625FF0AEC00D00D4D /* CollectionViewCell.swift in Sources */,
@@ -295,14 +295,6 @@
 				FA7BC59625D5FA5700439347 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FA7BC59A25D5FA5700439347 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA7BC59B25D5FA5700439347 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -440,7 +432,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexThompson.Feel-Good-News";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -460,7 +452,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexThompson.Feel-Good-News";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
