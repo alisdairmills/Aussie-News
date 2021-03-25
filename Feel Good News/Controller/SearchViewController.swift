@@ -142,9 +142,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         } else { cell.contentView.backgroundColor = color2
         }
         cell.cellImage.layer.cornerRadius = 10
-        cell.cellTitle.text = cellArticles.title
         cell.cellDate.text = dateArray[indexPath.row]
-        cell.cellSource.text = cellArticles.source?.name
+        cell.cellTitle.text = cellArticles.title
         
         SDWebImageDownloader.shared.downloadImage(
             with: URL(string: cellArticles.urlToImage ?? ""),

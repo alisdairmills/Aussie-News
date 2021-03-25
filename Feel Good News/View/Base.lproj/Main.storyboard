@@ -51,7 +51,7 @@
             </objects>
             <point key="canvasLocation" x="-606" y="-430"/>
         </scene>
-        <!--Aussie News-->
+        <!--Feel Good News-->
         <scene sceneID="AuS-XL-zRJ">
             <objects>
                 <viewController id="Cvm-bh-it5" customClass="HomeViewController" customModule="Feel_Good_News" customModuleProvider="target" sceneMemberID="viewController">
@@ -125,7 +125,7 @@
                         <viewLayoutGuide key="safeArea" id="6Ua-wW-IOq"/>
                         <color key="backgroundColor" red="0.14509803921568626" green="0.27843137254901962" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Aussie News" id="VT3-Uq-ke5"/>
+                    <navigationItem key="navigationItem" title="Feel Good News" id="VT3-Uq-ke5"/>
                     <connections>
                         <outlet property="collectionView" destination="Ugd-g0-H7d" id="pEf-6j-Tdw"/>
                         <outlet property="tableView" destination="WHg-ud-Zmh" id="Eoq-YC-BcJ"/>

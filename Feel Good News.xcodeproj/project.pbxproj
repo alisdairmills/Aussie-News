@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D81DCC16BDC24EE26E138CDA /* Pods_Feel_Good_News.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59EEF02448403B2C134F1E81 /* Pods_Feel_Good_News.framework */; };
+		FA05BA82260B454000EFDE96 /* HiddenContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA05BA81260B454000EFDE96 /* HiddenContent.swift */; };
 		FA2F3CE025F0953100B5DB2B /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F3CDF25F0953100B5DB2B /* NewsManager.swift */; };
-		FA2F3CE325F0955800B5DB2B /* HiddenContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F3CE225F0955800B5DB2B /* HiddenContent.swift */; };
 		FA72291625FF0AEC00D00D4D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72291525FF0AEC00D00D4D /* CollectionViewCell.swift */; };
 		FA7BC59025D5FA5700439347 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BC58F25D5FA5700439347 /* AppDelegate.swift */; };
 		FA7BC59225D5FA5700439347 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BC59125D5FA5700439347 /* SceneDelegate.swift */; };
@@ -30,8 +30,8 @@
 		59EEF02448403B2C134F1E81 /* Pods_Feel_Good_News.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Feel_Good_News.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		615C9B32C809B2D123CC40C3 /* Pods-Feel Good News.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feel Good News.release.xcconfig"; path = "Target Support Files/Pods-Feel Good News/Pods-Feel Good News.release.xcconfig"; sourceTree = "<group>"; };
 		F7308F69AE8B37B4D68F1415 /* Pods-Feel Good News.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feel Good News.debug.xcconfig"; path = "Target Support Files/Pods-Feel Good News/Pods-Feel Good News.debug.xcconfig"; sourceTree = "<group>"; };
+		FA05BA81260B454000EFDE96 /* HiddenContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenContent.swift; sourceTree = "<group>"; };
 		FA2F3CDF25F0953100B5DB2B /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
-		FA2F3CE225F0955800B5DB2B /* HiddenContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenContent.swift; sourceTree = "<group>"; };
 		FA72291525FF0AEC00D00D4D /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		FA7BC58C25D5FA5700439347 /* Feel Good News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feel Good News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7BC58F25D5FA5700439347 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,8 +141,8 @@
 				FA7BC59325D5FA5700439347 /* HomeViewController.swift */,
 				FA7BC5B125D6119C00439347 /* SettingsTableViewController.swift */,
 				FA7BC5B425D611CA00439347 /* ArticleViewController.swift */,
+				FA05BA81260B454000EFDE96 /* HiddenContent.swift */,
 				FA7BC5B725D6122A00439347 /* SearchViewController.swift */,
-				FA2F3CE225F0955800B5DB2B /* HiddenContent.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -280,8 +280,8 @@
 				FA7BC5B225D6119C00439347 /* SettingsTableViewController.swift in Sources */,
 				FA7BC59025D5FA5700439347 /* AppDelegate.swift in Sources */,
 				FA9A917E25F1A39E00CE109A /* NewsData.swift in Sources */,
+				FA05BA82260B454000EFDE96 /* HiddenContent.swift in Sources */,
 				FA72291625FF0AEC00D00D4D /* CollectionViewCell.swift in Sources */,
-				FA2F3CE325F0955800B5DB2B /* HiddenContent.swift in Sources */,
 				FA7BC59225D5FA5700439347 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
