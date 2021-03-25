@@ -20,7 +20,7 @@ struct NewsManager {
     let searchURLString = "https://newsapi.org/v2/everything?"
     let categories = ["general", "business", "entertainment", "health", "science", "sports", "technology"]
     var category = "general"
-    let apiKey = "apikey=\(HiddenContent().APIKey)"
+    let apiKey = "apikey=\(HiddenContent().apiKey)"
     let country = "&country=au"
     var search = ""
     let pageSize = "&pagesize=100"
