@@ -17,7 +17,7 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
     var articleName: String?
     var article: Article?
     var savedArticles = [Article]()
-        
+    
     override func loadView() {
         webView = WKWebView()
         webView.navigationDelegate = self

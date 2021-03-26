@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch Image" translatesAutoresizingMaskIntoConstraints="NO" id="UOh-rX-F6V">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App Icons - App Store-1024" translatesAutoresizingMaskIntoConstraints="NO" id="UOh-rX-F6V">
                                 <rect key="frame" x="87" y="274" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="73z-Ct-4ap"/>
@@ -39,6 +39,7 @@
                             <constraint firstItem="RKN-PB-t8f" firstAttribute="top" secondItem="UOh-rX-F6V" secondAttribute="bottom" constant="8" id="WTe-m1-iYL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UOh-rX-F6V" secondAttribute="bottom" constant="348" id="qRa-sA-5rT"/>
                             <constraint firstItem="RKN-PB-t8f" firstAttribute="trailing" secondItem="UOh-rX-F6V" secondAttribute="trailing" id="sb7-n2-vDF"/>
+                            <constraint firstItem="RKN-PB-t8f" firstAttribute="width" secondItem="UOh-rX-F6V" secondAttribute="width" id="tuN-4G-1oq"/>
                             <constraint firstItem="UOh-rX-F6V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="ugd-21-i5t"/>
                         </constraints>
                     </view>
@@ -49,6 +50,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launch Image" width="1024" height="1024"/>
+        <image name="App Icons - App Store-1024" width="1024" height="1024"/>
     </resources>
 </document>

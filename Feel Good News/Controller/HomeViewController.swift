@@ -8,25 +8,23 @@
 import UIKit
 import SDWebImage
 
-
-
-
 class HomeViewController: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var newsManager = NewsManager()
     var imageArray = [String]()
     var articles = [Article]()
     var dateArray = [String]()
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var collectionView: UICollectionView!
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        newsManager.parseData(option: "General")
         
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        
+        DispatchQueue.global(qos: .background).async {
+            self.newsManager.parseData(option: "General")
+        }
     }
     
     override func viewDidLoad() {
@@ -40,16 +38,8 @@ class HomeViewController: UIViewController {
         
     }
     
-    func dateFormatter(date: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let date = dateFormatter.date(from: date)
-        dateFormatter.dateFormat = "MMM d, yyyy"
-        return dateFormatter.string(from: date!)
-    }
-    
-    
 }
+
 //MARK: - News Manager Delegate
 
 extension HomeViewController: NewsManagerDelegate {
@@ -60,28 +50,26 @@ extension HomeViewController: NewsManagerDelegate {
             self.articles = news.articles
             for i in self.articles {
                 if i.publishedAt != nil {
-                    self.dateArray.append(self.dateFormatter(date: i.publishedAt!))
+                    self.dateArray.append(self.newsManager.dateFormatter(date: i.publishedAt!))
                 }
             }
-    
+            
             self.tableView.reloadData()
         }
     }
 }
 
-
-//MARK: - TableView Controller
+//MARK: - TableViewController
 
 extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return articles.count
-        
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "TableViewArticle", sender: self)
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        tableView.estimatedRowHeight = 182
+        return UITableView.automaticDimension
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -96,11 +84,10 @@ extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        // must fix this to programattically be height of xib
-        //tableView.estimatedRowHeight = 182
-        return UITableView.automaticDimension
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "TableViewArticle", sender: self)
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellArticles = articles[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellXib", for: indexPath) as! HomeTableViewCell
@@ -116,6 +103,7 @@ extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
         cell.cellDate.text = dateArray[indexPath.row]
         cell.cellTitle.text = cellArticles.title
         
+        //downloads and caches images faster
         SDWebImageDownloader.shared.downloadImage(
             with: URL(string: cellArticles.urlToImage ?? ""),
             options: [.highPriority, .continueInBackground],
@@ -131,10 +119,9 @@ extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
     
 }
 
-//MARK: - Collection View
+//MARK: - CollectionViewController
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return newsManager.categories.count
@@ -153,28 +140,26 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.collectionLabel.text = newsManager.categories[indexPath.row].capitalized
         cell.collectionView.layer.cornerRadius = 10
         
-    
-        
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? CollectionViewCell {
             cell.lines.isHidden = false
             
             newsManager.category = newsManager.categories[indexPath.row]
-            newsManager.parseData(option: "General")
+            DispatchQueue.global(qos: .background).async {
+                self.newsManager.parseData(option: "General")
+            }
             tableView.reloadData()
-            
             tableView.scrollToRow(at: indexPath, at: .top, animated: true)
             
         }
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? CollectionViewCell {
             cell.lines.isHidden = true
+        }
     }
-    
-    
-}
 }
