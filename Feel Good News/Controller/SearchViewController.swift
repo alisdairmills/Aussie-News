@@ -8,6 +8,7 @@
 import UIKit
 import SDWebImage
 
+
 class SearchViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -16,10 +17,11 @@ class SearchViewController: UIViewController {
     var newsManager = NewsManager()
     var dateArray = [String]()
     var searchArray = [Article]()
+    var array = [Article]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(GlobalArray.SavedArrayGlobal)
         newsManager.delegate = self
         
         tableView.delegate = self
@@ -35,6 +37,8 @@ class SearchViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
+        
+        
     }
     
     @objc func dismissOnTapOutside() {

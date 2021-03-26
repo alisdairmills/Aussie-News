@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		D81DCC16BDC24EE26E138CDA /* Pods_Feel_Good_News.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59EEF02448403B2C134F1E81 /* Pods_Feel_Good_News.framework */; };
 		FA2F3CE025F0953100B5DB2B /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F3CDF25F0953100B5DB2B /* NewsManager.swift */; };
+		FA40A574260D9133006A817F /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA40A573260D9133006A817F /* SavedViewController.swift */; };
+		FA40A577260DA18D006A817F /* GlobalArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA40A576260DA18D006A817F /* GlobalArray.swift */; };
+		FA40A57C260DE737006A817F /* App Icons - App Store 2-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = FA40A57B260DE737006A817F /* App Icons - App Store 2-1024.png */; };
 		FA72291625FF0AEC00D00D4D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72291525FF0AEC00D00D4D /* CollectionViewCell.swift */; };
 		FA7BC59025D5FA5700439347 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BC58F25D5FA5700439347 /* AppDelegate.swift */; };
 		FA7BC59225D5FA5700439347 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BC59125D5FA5700439347 /* SceneDelegate.swift */; };
@@ -21,7 +24,6 @@
 		FA9A917E25F1A39E00CE109A /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A917D25F1A39E00CE109A /* NewsData.swift */; };
 		FA9A918F25F6FAED00CE109A /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A918E25F6FAED00CE109A /* HomeTableViewCell.swift */; };
 		FA9A91A725F99C1E00CE109A /* HomeTableViewXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9A91A525F99C1E00CE109A /* HomeTableViewXib.xib */; };
-		FAE0F645260ABAE9002F216A /* App Icons - App Store-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = FAE0F644260ABAE9002F216A /* App Icons - App Store-1024.png */; };
 		FAE0F65E260AC0FB002F216A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE0F65D260AC0FB002F216A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,9 @@
 		615C9B32C809B2D123CC40C3 /* Pods-Feel Good News.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feel Good News.release.xcconfig"; path = "Target Support Files/Pods-Feel Good News/Pods-Feel Good News.release.xcconfig"; sourceTree = "<group>"; };
 		F7308F69AE8B37B4D68F1415 /* Pods-Feel Good News.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feel Good News.debug.xcconfig"; path = "Target Support Files/Pods-Feel Good News/Pods-Feel Good News.debug.xcconfig"; sourceTree = "<group>"; };
 		FA2F3CDF25F0953100B5DB2B /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
+		FA40A573260D9133006A817F /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
+		FA40A576260DA18D006A817F /* GlobalArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalArray.swift; sourceTree = "<group>"; };
+		FA40A57B260DE737006A817F /* App Icons - App Store 2-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App Icons - App Store 2-1024.png"; sourceTree = "<group>"; };
 		FA72291525FF0AEC00D00D4D /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		FA7BC58C25D5FA5700439347 /* Feel Good News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feel Good News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7BC58F25D5FA5700439347 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +50,6 @@
 		FA9A918E25F6FAED00CE109A /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		FA9A91A525F99C1E00CE109A /* HomeTableViewXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewXib.xib; sourceTree = "<group>"; };
 		FAE0F62A26084F56002F216A /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
-		FAE0F644260ABAE9002F216A /* App Icons - App Store-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App Icons - App Store-1024.png"; sourceTree = "<group>"; };
 		FAE0F65D260AC0FB002F216A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,7 +109,6 @@
 				FA7BC5A625D6084D00439347 /* View */,
 				FA7BC5A725D6085500439347 /* Controller */,
 				FA7BC59825D5FA5700439347 /* Assets.xcassets */,
-				FAE0F644260ABAE9002F216A /* App Icons - App Store-1024.png */,
 				FA7BC59D25D5FA5700439347 /* Info.plist */,
 				FAE0F62826084E30002F216A /* Fonts */,
 			);
@@ -117,6 +120,7 @@
 			children = (
 				FA9A917D25F1A39E00CE109A /* NewsData.swift */,
 				FA2F3CDF25F0953100B5DB2B /* NewsManager.swift */,
+				FA40A576260DA18D006A817F /* GlobalArray.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -140,6 +144,8 @@
 				FA7BC5B725D6122A00439347 /* SearchViewController.swift */,
 				FA7BC5B125D6119C00439347 /* SettingsTableViewController.swift */,
 				FA7BC5B425D611CA00439347 /* ArticleViewController.swift */,
+				FA40A573260D9133006A817F /* SavedViewController.swift */,
+				FA40A57B260DE737006A817F /* App Icons - App Store 2-1024.png */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -214,7 +220,7 @@
 			files = (
 				FA9A91A725F99C1E00CE109A /* HomeTableViewXib.xib in Resources */,
 				FA7BC59925D5FA5700439347 /* Assets.xcassets in Resources */,
-				FAE0F645260ABAE9002F216A /* App Icons - App Store-1024.png in Resources */,
+				FA40A57C260DE737006A817F /* App Icons - App Store 2-1024.png in Resources */,
 				FAE0F65E260AC0FB002F216A /* LaunchScreen.storyboard in Resources */,
 				FA7BC59725D5FA5700439347 /* Main.storyboard in Resources */,
 			);
@@ -274,7 +280,9 @@
 				FA7BC59425D5FA5700439347 /* HomeViewController.swift in Sources */,
 				FA7BC5B825D6122A00439347 /* SearchViewController.swift in Sources */,
 				FA7BC5B525D611CA00439347 /* ArticleViewController.swift in Sources */,
+				FA40A577260DA18D006A817F /* GlobalArray.swift in Sources */,
 				FA7BC5B225D6119C00439347 /* SettingsTableViewController.swift in Sources */,
+				FA40A574260D9133006A817F /* SavedViewController.swift in Sources */,
 				FA7BC59025D5FA5700439347 /* AppDelegate.swift in Sources */,
 				FA9A917E25F1A39E00CE109A /* NewsData.swift in Sources */,
 				FA72291625FF0AEC00D00D4D /* CollectionViewCell.swift in Sources */,
