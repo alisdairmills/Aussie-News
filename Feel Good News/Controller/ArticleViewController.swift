@@ -17,7 +17,8 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
     var articleName: String?
     var article: Article?
     var savedArticles = [Article]()
-        
+    var savedImageName = "bookmark"
+    
     override func loadView() {
         webView = WKWebView()
         webView.navigationDelegate = self
@@ -26,22 +27,47 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(share))
-        print(articleURL)
+        
+        barButtons(bookmark: "bookmark")
+               
         if let safeURL = articleURL {
             if let url = URL(string: safeURL) {
                 webView.load(URLRequest(url: url))
                 navigationItem.title = articleName
+                
             }
         }
     }
+        func barButtons(bookmark: String) {
+            
+            let shareButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(share))
+            
+            let saveButton = UIBarButtonItem(image: UIImage(systemName: bookmark), style: .plain, target: self, action: #selector(save))
+            navigationItem.rightBarButtonItems = [shareButton, saveButton]
+        }
+    
     
     @objc func share() {
         let items: [Any] = ["\(articleTitle!)", URL(string: articleURL!) as Any]
-        
+    
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         ac.popoverPresentationController?.sourceView = self.webView
         present(ac, animated: true)
     }
+    
+    // when returning to same link how do I keep saveimagename consistant? loop to search for urls. if no mathing then save
+    @objc func save() {
+        if savedImageName == "bookmark" {
+            savedImageName = "bookmark.fill"
+            barButtons(bookmark: "bookmark.fill")
+            GlobalArray.SavedArrayGlobal.insert(article!, at: 0)
+        } else if savedImageName == "bookmark.fill" {
+            savedImageName = "bookmark"
+            barButtons(bookmark: "bookmark")
+            GlobalArray.SavedArrayGlobal.removeFirst()
+        }
+      
+      
 }
 
+}

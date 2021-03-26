@@ -15,30 +15,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch Image" translatesAutoresizingMaskIntoConstraints="NO" id="UOh-rX-F6V">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App Icons - App Store-1024" translatesAutoresizingMaskIntoConstraints="NO" id="UOh-rX-F6V">
                                 <rect key="frame" x="87" y="274" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="73z-Ct-4ap"/>
                                     <constraint firstAttribute="height" constant="240" id="Mlu-gI-8Xf"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feel Good News" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKN-PB-t8f">
-                                <rect key="frame" x="87" y="522" width="240" height="59"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feel Good News" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RKN-PB-t8f">
+                                <rect key="frame" x="107" y="522" width="200" height="59"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.14509803921568626" green="0.27843137254901962" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="RKN-PB-t8f" firstAttribute="centerX" secondItem="UOh-rX-F6V" secondAttribute="centerX" id="9kQ-Ta-vcf"/>
+                            <constraint firstItem="RKN-PB-t8f" firstAttribute="top" secondItem="UOh-rX-F6V" secondAttribute="bottom" constant="8" id="9zU-cb-W7d"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UOh-rX-F6V" secondAttribute="trailing" constant="87" id="GGL-cN-6UK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RKN-PB-t8f" secondAttribute="bottom" constant="281" id="Pvh-t8-8Wm"/>
+                            <constraint firstItem="RKN-PB-t8f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="107" id="HUj-Bh-tDD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RKN-PB-t8f" secondAttribute="bottom" constant="281" id="LkV-q9-yOz"/>
                             <constraint firstItem="UOh-rX-F6V" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="230" id="TGQ-VU-CAd"/>
-                            <constraint firstItem="RKN-PB-t8f" firstAttribute="top" secondItem="UOh-rX-F6V" secondAttribute="bottom" constant="8" id="WTe-m1-iYL"/>
+                            <constraint firstItem="RKN-PB-t8f" firstAttribute="trailing" secondItem="UOh-rX-F6V" secondAttribute="trailing" constant="-20" id="dcg-Tr-8ZH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UOh-rX-F6V" secondAttribute="bottom" constant="348" id="qRa-sA-5rT"/>
-                            <constraint firstItem="RKN-PB-t8f" firstAttribute="trailing" secondItem="UOh-rX-F6V" secondAttribute="trailing" id="sb7-n2-vDF"/>
                             <constraint firstItem="UOh-rX-F6V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="ugd-21-i5t"/>
                         </constraints>
                     </view>
@@ -49,6 +49,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launch Image" width="1024" height="1024"/>
+        <image name="App Icons - App Store-1024" width="1024" height="1024"/>
     </resources>
 </document>

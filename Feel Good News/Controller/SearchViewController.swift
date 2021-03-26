@@ -8,83 +8,75 @@
 import UIKit
 import SDWebImage
 
-class SearchViewController: UIViewController {
 
+class SearchViewController: UIViewController {
+    
     @IBOutlet weak var tableView: UITableView!
-   
     @IBOutlet weak var searchTextField: UITextField!
     
     var newsManager = NewsManager()
     var dateArray = [String]()
     var searchArray = [Article]()
-  
+    var array = [Article]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(GlobalArray.SavedArrayGlobal)
+        newsManager.delegate = self
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "HomeTableViewXib", bundle: nil), forCellReuseIdentifier: "CellXib")
         searchTextField.delegate = self
-        newsManager.delegate = self
         
         //implemented this to make the placeholder text darker and more legible against a white background
         searchTextField.attributedPlaceholder = NSAttributedString(string: "Search...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
-        
         searchTextField.leftView = UIImageView(image: UIImage(systemName: "magnifyingglass"))
         
+        //text field keyboard minimise
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
+        
+        
     }
     
     @objc func dismissOnTapOutside() {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func dateFormatter(date: String) -> String {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let date = dateFormatter.date(from: date)
-        dateFormatter.dateFormat = "MMM d, yyyy"
-        
-        return dateFormatter.string(from: date!)
-    }
+    
 }
 
 //MARK: - UITextFieldDelegate
 
 extension SearchViewController: UITextFieldDelegate {
-   
-    
-    @IBAction func SearchButtonPressed(_ sender: UIButton) {
-        newsManager.search = "&q=\(searchTextField.text ?? "")"
-        newsManager.parseData(option: "Search")
-        tableView.reloadData()
-    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchTextField.endEditing(true)
         return true
     }
     
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-       
-            newsManager.search = "&q=\(searchTextField.text ?? "")"
-            newsManager.parseData(option: "Search")
-            tableView.reloadData()
-            return true
-        }
-    
-    
     func textFieldDidEndEditing(_ textField: UITextField) {
         newsManager.search = "&q=\(searchTextField.text!)"
-        newsManager.parseData(option: "Search")
+        DispatchQueue.global(qos: .background).async {
+            self.newsManager.parseData(option: "Search")
+        }
         tableView.reloadData()
     }
-
+    
+    @IBAction func SearchButtonPressed(_ sender: UIButton) {
+        
+        if searchTextField.text != "" {
+            newsManager.search = "&q=\(searchTextField.text ?? "")"
+            textFieldDidEndEditing(searchTextField)
+        } else {
+            searchTextField.placeholder = "Please enter a search topic..."
+        }
+    }
+    
 }
-//MARK: - NewsManager Delegate
+//MARK: - NewsManagerDelegate
 
 extension SearchViewController: NewsManagerDelegate {
     func updateNews(_ newsManager: NewsManager, news: Articles) {
@@ -93,7 +85,7 @@ extension SearchViewController: NewsManagerDelegate {
             self.searchArray = news.articles
             for i in self.searchArray {
                 if i.publishedAt != nil {
-                    self.dateArray.append(self.dateFormatter(date: i.publishedAt!))
+                    self.dateArray.append(self.newsManager.dateFormatter(date: i.publishedAt!))
                 }
             }
             self.tableView.reloadData()
@@ -111,6 +103,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        tableView.estimatedRowHeight = 182
         return UITableView.automaticDimension
     }
     
@@ -145,6 +138,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         cell.cellDate.text = dateArray[indexPath.row]
         cell.cellTitle.text = cellArticles.title
         
+        //downloads and caches images faster
         SDWebImageDownloader.shared.downloadImage(
             with: URL(string: cellArticles.urlToImage ?? ""),
             options: [.highPriority, .continueInBackground],
@@ -157,9 +151,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    }
-    
-    
-    
+}
+
+
+
 
 

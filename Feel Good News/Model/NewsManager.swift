@@ -10,7 +10,6 @@ import UIKit
 
 protocol NewsManagerDelegate {
     func updateNews(_ newsManager: NewsManager, news: Articles)
-    
 }
 
 struct NewsManager {
@@ -20,44 +19,50 @@ struct NewsManager {
     let searchURLString = "https://newsapi.org/v2/everything?"
     let categories = ["general", "business", "entertainment", "health", "science", "sports", "technology"]
     var category = "general"
-    let apiKey = "apikey=\(HiddenContent().apiKey)"
+    let apiKey = "apikey=a1c9799d78c040df82b183e5ccae527f"
     let country = "&country=au"
     var search = ""
     let pageSize = "&pagesize=100"
-
+    
     
     func parseData(option: String)  {
-     var urlString = "\(generalURLString)\(apiKey)\(country)\(pageSize)"
-      if option == "Search" {
+        var urlString = "\(generalURLString)\(apiKey)\(country)\(pageSize)"
+        if option == "Search" {
             urlString = urlString + search
-      } else if option == "General" {
-        urlString = urlString + "&category=\(category)"
-      }
+        } else if option == "General" {
+            urlString = urlString + "&category=\(category)"
+        }
         
         if let url = URL(string: urlString) {
             let session = URLSession.shared
             let task = session.dataTask(with: url) { (data, response, error) in
-
+                
                 do {
-
+                    
                     guard let data = data else { return }
-                   
+                    
                     let article = try JSONDecoder().decode(Articles.self, from: data)
                     self.delegate?.updateNews(self, news: article)
-                   
-                
+                    
+                    
                 } catch {
-                    print(error)
+                    print(error.localizedDescription)
                 }
-
+                
             }
             task.resume()
             
         }
-
+        
     }
-
-
+    
+    func dateFormatter(date: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let date = dateFormatter.date(from: date)
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        return dateFormatter.string(from: date!)
+    }
 }
 
 
