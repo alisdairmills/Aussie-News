@@ -25,10 +25,23 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
         view = webView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        barButtons(bookmark: "bookmark")
+        
+        // This loop prevents articles from being saved twice by searching the array for matching URLs.
+        for i in GlobalArray.SavedArrayGlobal {
+            if i.url == articleURL {
+                savedImageName = "bookmark.fill"
+                barButtons(bookmark: "bookmark.fill")
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        barButtons(bookmark: "bookmark")
+        
+        
                
         if let safeURL = articleURL {
             if let url = URL(string: safeURL) {
@@ -57,6 +70,7 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
     
     // when returning to same link how do I keep saveimagename consistant? loop to search for urls. if no mathing then save
     @objc func save() {
+        
         if savedImageName == "bookmark" {
             savedImageName = "bookmark.fill"
             barButtons(bookmark: "bookmark.fill")

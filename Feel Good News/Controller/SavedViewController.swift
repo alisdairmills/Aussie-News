@@ -9,6 +9,9 @@ import UIKit
 import SDWebImage
 
 
+//make saved articles look better when empty.
+
+
 class SavedViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
