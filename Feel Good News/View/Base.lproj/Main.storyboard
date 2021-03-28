@@ -51,7 +51,7 @@
             </objects>
             <point key="canvasLocation" x="-606" y="-430"/>
         </scene>
-        <!--Feel Good News-->
+        <!--Aussie News-->
         <scene sceneID="AuS-XL-zRJ">
             <objects>
                 <viewController id="Cvm-bh-it5" customClass="HomeViewController" customModule="Feel_Good_News" customModuleProvider="target" sceneMemberID="viewController">
@@ -96,12 +96,12 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="lineweight" catalog="system" id="xeZ-IQ-iXD">
                                                     <rect key="frame" x="0.0" y="36" width="95" height="86"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" red="0.1450980392" green="0.2784313725" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="95" translatesAutoresizingMaskIntoConstraints="NO" id="dxg-Ed-x37">
                                                     <rect key="frame" x="0.0" y="0.0" width="95" height="57"/>
                                                     <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="15"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
@@ -135,7 +135,7 @@
                             <constraint firstItem="Ugd-g0-H7d" firstAttribute="leading" secondItem="WHg-ud-Zmh" secondAttribute="leading" id="vBA-9a-7sz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Feel Good News" id="VT3-Uq-ke5"/>
+                    <navigationItem key="navigationItem" title="Aussie News" id="VT3-Uq-ke5"/>
                     <connections>
                         <outlet property="collectionView" destination="Ugd-g0-H7d" id="pEf-6j-Tdw"/>
                         <outlet property="tableView" destination="WHg-ud-Zmh" id="Eoq-YC-BcJ"/>
@@ -504,7 +504,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Lhb-pQ-j0Q"/>
+        <segue reference="aOi-Fi-Ow5"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemGray6Color"/>
     <resources>

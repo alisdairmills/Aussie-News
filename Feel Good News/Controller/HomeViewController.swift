@@ -92,8 +92,8 @@ extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
         let cellArticles = articles[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellXib", for: indexPath) as! HomeTableViewCell
         
-        let color1 = UIColor(displayP3Red: 0.29, green: 0.41, blue: 0.50, alpha: 1.00)
-        let color2 = UIColor(displayP3Red: 0.44, green: 0.64, blue: 0.70, alpha: 1.00)
+        let color1 = UIColor.white
+        let color2 = UIColor.lightGray
         
         if indexPath.row % 2 == 0 {
             cell.contentView.backgroundColor = color1
@@ -130,8 +130,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! CollectionViewCell
         cell.lines.isHidden = true
-        let color1 = UIColor(displayP3Red: 0.29, green: 0.41, blue: 0.50, alpha: 1.00)
-        let color2 = UIColor(displayP3Red: 0.44, green: 0.64, blue: 0.70, alpha: 1.00)
+        let color1 = UIColor.white
+        let color2 = UIColor.lightGray
         
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = color1
