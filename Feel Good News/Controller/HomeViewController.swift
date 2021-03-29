@@ -80,24 +80,24 @@ extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
                 vc.articleTitle = articles[indexPath.row].title
                 vc.articleName = articles[indexPath.row].source?.name
                 vc.article = articles[indexPath.row]
+                vc.date = dateArray[indexPath.row]
+        
             }
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        GlobalArray.dateArrayGlobal.insert(dateArray[indexPath.row], at: 0)
         performSegue(withIdentifier: "TableViewArticle", sender: self)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellArticles = articles[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellXib", for: indexPath) as! HomeTableViewCell
-        
-        let color1 = UIColor(displayP3Red: 0.29, green: 0.41, blue: 0.50, alpha: 1.00)
-        let color2 = UIColor(displayP3Red: 0.44, green: 0.64, blue: 0.70, alpha: 1.00)
-        
+    
         if indexPath.row % 2 == 0 {
-            cell.contentView.backgroundColor = color1
-        } else { cell.contentView.backgroundColor = color2
+            cell.contentView.backgroundColor = UIColor.white
+        } else { cell.contentView.backgroundColor = UIColor.lightGray
         }
         cell.cellImage.layer.cornerRadius = 10
         cell.cellDate.text = dateArray[indexPath.row]
@@ -130,12 +130,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! CollectionViewCell
         cell.lines.isHidden = true
-        let color1 = UIColor(displayP3Red: 0.29, green: 0.41, blue: 0.50, alpha: 1.00)
-        let color2 = UIColor(displayP3Red: 0.44, green: 0.64, blue: 0.70, alpha: 1.00)
         
         if indexPath.row % 2 == 0 {
-            cell.backgroundColor = color1
-        } else { cell.backgroundColor = color2
+            cell.backgroundColor = UIColor.white
+        } else { cell.backgroundColor = UIColor.lightGray
         }
         cell.collectionLabel.text = newsManager.categories[indexPath.row].capitalized
         cell.collectionView.layer.cornerRadius = 10

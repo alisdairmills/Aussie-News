@@ -9,7 +9,7 @@ import UIKit
 import SDWebImage
 
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UIActionSheetDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
@@ -21,9 +21,8 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(GlobalArray.SavedArrayGlobal)
+        print(GlobalArray.savedArrayGlobal)
         newsManager.delegate = self
-        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "HomeTableViewXib", bundle: nil), forCellReuseIdentifier: "CellXib")
@@ -40,12 +39,7 @@ class SearchViewController: UIViewController {
         
         
     }
-    
-    @objc func dismissOnTapOutside() {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    
+
 }
 
 //MARK: - UITextFieldDelegate
@@ -127,12 +121,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cellArticles = searchArray[indexPath.row]
         
-        let color1 = UIColor(displayP3Red: 0.29, green: 0.41, blue: 0.50, alpha: 1.00)
-        let color2 = UIColor(displayP3Red: 0.44, green: 0.64, blue: 0.70, alpha: 1.00)
-        
         if indexPath.row % 2 == 0 {
-            cell.contentView.backgroundColor = color1
-        } else { cell.contentView.backgroundColor = color2
+            cell.contentView.backgroundColor = UIColor.white
+        } else { cell.contentView.backgroundColor = UIColor.lightGray
         }
         cell.cellImage.layer.cornerRadius = 10
         cell.cellDate.text = dateArray[indexPath.row]

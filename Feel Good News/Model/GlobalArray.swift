@@ -11,11 +11,9 @@ import Foundation
 struct GlobalArray   {
     
     //for saving articles
-    static var SavedArrayGlobal = [Article]()
+    static var savedArrayGlobal = [Article]()
     
-    
-    
-    //ReuableTableViewData - To pass across multiple views.
+    static var dateArrayGlobal = [String]()
     
     
     

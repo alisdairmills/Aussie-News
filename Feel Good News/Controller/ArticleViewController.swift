@@ -10,14 +10,16 @@ import WebKit
 
 
 class ArticleViewController: UIViewController, WKNavigationDelegate {
-    //bind webview bounds so that it doesnt go under nav and tab controllers
+  
     var webView: WKWebView!
     var articleURL: String?
     var articleTitle: String?
     var articleName: String?
+    var articleDate: String?
     var article: Article?
     var savedArticles = [Article]()
     var savedImageName = "bookmark"
+    var date: String?
     
     override func loadView() {
         webView = WKWebView()
@@ -25,10 +27,23 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
         view = webView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        barButtons(bookmark: "bookmark")
+        
+        // This loop prevents articles from being saved twice by searching the array for matching URLs.
+        for i in GlobalArray.savedArrayGlobal {
+            if i.url == articleURL {
+                savedImageName = "bookmark.fill"
+                barButtons(bookmark: "bookmark.fill")
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        barButtons(bookmark: "bookmark")
+        
+        
                
         if let safeURL = articleURL {
             if let url = URL(string: safeURL) {
@@ -55,16 +70,18 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
         present(ac, animated: true)
     }
     
-    // when returning to same link how do I keep saveimagename consistant? loop to search for urls. if no mathing then save
     @objc func save() {
+        
         if savedImageName == "bookmark" {
             savedImageName = "bookmark.fill"
             barButtons(bookmark: "bookmark.fill")
-            GlobalArray.SavedArrayGlobal.insert(article!, at: 0)
+            GlobalArray.savedArrayGlobal.insert(article!, at: 0)
+            GlobalArray.dateArrayGlobal.insert(date ?? "", at: 0)
         } else if savedImageName == "bookmark.fill" {
             savedImageName = "bookmark"
             barButtons(bookmark: "bookmark")
-            GlobalArray.SavedArrayGlobal.removeFirst()
+            GlobalArray.savedArrayGlobal.removeFirst()
+            GlobalArray.dateArrayGlobal.removeFirst()
         }
       
       

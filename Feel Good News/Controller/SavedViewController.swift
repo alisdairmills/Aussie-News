@@ -9,16 +9,19 @@ import UIKit
 import SDWebImage
 
 
+//make saved articles look better when empty.
+
+
 class SavedViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-   
     var articles = [Article]()
     
     
+    
     override func viewWillAppear(_ animated: Bool) {
-        articles = GlobalArray.SavedArrayGlobal
+        articles = GlobalArray.savedArrayGlobal
            tableView.reloadData()
     }
     
@@ -28,13 +31,10 @@ class SavedViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "HomeTableViewXib", bundle: nil), forCellReuseIdentifier: "CellXib")
-        
-        }
-    
-
+      
     }
+}
     
-
     //MARK: - TableViewDelegate
     
 extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
@@ -46,6 +46,16 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         tableView.estimatedRowHeight = 182
         return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            GlobalArray.dateArrayGlobal.remove(at: indexPath.row)
+            GlobalArray.savedArrayGlobal.remove(at: indexPath.row)
+            articles.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            tableView.reloadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -70,19 +80,16 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cellArticles = articles[indexPath.row]
         
-        let color1 = UIColor(displayP3Red: 0.29, green: 0.41, blue: 0.50, alpha: 1.00)
-        let color2 = UIColor(displayP3Red: 0.44, green: 0.64, blue: 0.70, alpha: 1.00)
-        
         if indexPath.row % 2 == 0 {
-            cell.contentView.backgroundColor = color1
-        } else { cell.contentView.backgroundColor = color2
+            cell.contentView.backgroundColor = UIColor.white
+        } else { cell.contentView.backgroundColor = UIColor.lightGray
         }
         cell.cellImage.layer.cornerRadius = 10
         
         //fix the date on this. carry info over from artivle view controller
         //cell.cellDate.text = cellArticles.publishedAt
         cell.cellTitle.text = cellArticles.title
-        
+        cell.cellDate.text = GlobalArray.dateArrayGlobal[indexPath.row]
         //downloads and caches images faster
         SDWebImageDownloader.shared.downloadImage(
             with: URL(string: cellArticles.urlToImage ?? ""),
