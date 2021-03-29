@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FA7BC58B25D5FA5700439347"
-               BuildableName = "Feel Good News.app"
+               BuildableName = "Aussie news.app"
                BlueprintName = "Feel Good News"
                ReferencedContainer = "container:Feel Good News.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA7BC58B25D5FA5700439347"
-            BuildableName = "Feel Good News.app"
+            BuildableName = "Aussie news.app"
             BlueprintName = "Feel Good News"
             ReferencedContainer = "container:Feel Good News.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FA7BC58B25D5FA5700439347"
-            BuildableName = "Feel Good News.app"
+            BuildableName = "Aussie news.app"
             BlueprintName = "Feel Good News"
             ReferencedContainer = "container:Feel Good News.xcodeproj">
          </BuildableReference>

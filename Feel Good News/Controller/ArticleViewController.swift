@@ -37,6 +37,7 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
                 barButtons(bookmark: "bookmark.fill")
             }
         }
+        let userDefaults = UserDefaults.standard
     }
     
     override func viewDidLoad() {
