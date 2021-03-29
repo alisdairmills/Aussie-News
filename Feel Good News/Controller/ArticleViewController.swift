@@ -31,7 +31,11 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
         barButtons(bookmark: "bookmark")
         
         // This loop prevents articles from being saved twice by searching the array for matching URLs.
+<<<<<<< HEAD
         for i in GlobalArray.savedArrayGlobal {
+=======
+        for i in GlobalArray.SavedArrayGlobal {
+>>>>>>> 31f88614643f2d3730204931fa16fd3eba007fbf
             if i.url == articleURL {
                 savedImageName = "bookmark.fill"
                 barButtons(bookmark: "bookmark.fill")
