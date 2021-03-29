@@ -23,14 +23,15 @@ struct NewsManager {
     let country = "&country=au"
     var search = ""
     let pageSize = "&pagesize=100"
+    let language = "&language=en"
     
     
     func parseData(option: String)  {
-        var urlString = "\(generalURLString)\(apiKey)\(country)\(pageSize)"
+        var urlString = ""
         if option == "Search" {
-            urlString = urlString + search
+            urlString = "\(searchURLString)\(apiKey)\(language)\(search)+australia"
         } else if option == "General" {
-            urlString = urlString + "&category=\(category)"
+            urlString = "\(generalURLString)\(apiKey)\(country)\(pageSize)&category=\(category)"
         }
         
         if let url = URL(string: urlString) {
