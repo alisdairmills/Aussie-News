@@ -31,11 +31,7 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
         barButtons(bookmark: "bookmark")
         
         // This loop prevents articles from being saved twice by searching the array for matching URLs.
-<<<<<<< HEAD
         for i in GlobalArray.savedArrayGlobal {
-=======
-        for i in GlobalArray.SavedArrayGlobal {
->>>>>>> 31f88614643f2d3730204931fa16fd3eba007fbf
             if i.url == articleURL {
                 savedImageName = "bookmark.fill"
                 barButtons(bookmark: "bookmark.fill")
@@ -46,14 +42,10 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-               
         if let safeURL = articleURL {
             if let url = URL(string: safeURL) {
                 webView.load(URLRequest(url: url))
                 navigationItem.title = articleName
-                
             }
         }
     }
@@ -74,6 +66,16 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
         present(ac, animated: true)
     }
     
+    //alert for when user saved or removes article
+    func savedAlert(note: String) {
+        let ac = UIAlertController(title: note, message: "", preferredStyle: .alert)
+        self.present(ac, animated: true) {
+            Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { _ in
+                self.dismiss(animated: true, completion: nil)
+    }
+        }
+    }
+    
     @objc func save() {
         
         if savedImageName == "bookmark" {
@@ -81,11 +83,15 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
             barButtons(bookmark: "bookmark.fill")
             GlobalArray.savedArrayGlobal.insert(article!, at: 0)
             GlobalArray.dateArrayGlobal.insert(date ?? "", at: 0)
-        } else if savedImageName == "bookmark.fill" {
+           savedAlert(note: "Article Saved")
+                }
+            
+         else if savedImageName == "bookmark.fill" {
             savedImageName = "bookmark"
             barButtons(bookmark: "bookmark")
             GlobalArray.savedArrayGlobal.removeFirst()
             GlobalArray.dateArrayGlobal.removeFirst()
+            savedAlert(note: "Article Removed")
         }
       
       

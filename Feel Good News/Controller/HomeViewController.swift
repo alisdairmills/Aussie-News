@@ -94,14 +94,7 @@ extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellArticles = articles[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellXib", for: indexPath) as! HomeTableViewCell
-<<<<<<< HEAD
-    
-=======
         
-        let color1 = UIColor.white
-        let color2 = UIColor.lightGray
-        
->>>>>>> 31f88614643f2d3730204931fa16fd3eba007fbf
         if indexPath.row % 2 == 0 {
             cell.contentView.backgroundColor = UIColor.white
         } else { cell.contentView.backgroundColor = UIColor.lightGray
@@ -137,11 +130,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! CollectionViewCell
         cell.lines.isHidden = true
-<<<<<<< HEAD
-=======
-        let color1 = UIColor.white
-        let color2 = UIColor.lightGray
->>>>>>> 31f88614643f2d3730204931fa16fd3eba007fbf
         
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = UIColor.white
@@ -162,8 +150,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 self.newsManager.parseData(option: "General")
             }
             tableView.reloadData()
-            tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-            
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         }
     }
     

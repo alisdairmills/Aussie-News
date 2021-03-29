@@ -37,7 +37,6 @@ class SearchViewController: UIViewController, UIActionSheetDelegate {
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
-        
     }
 
 }

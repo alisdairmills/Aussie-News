@@ -15,10 +15,5 @@ struct GlobalArray   {
     
     static var dateArrayGlobal = [String]()
     
-    
-    
-    
-    
-    
 }
 

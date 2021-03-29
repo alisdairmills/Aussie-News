@@ -18,7 +18,7 @@
         <!--Title-->
         <scene sceneID="AXW-8q-Xfc">
             <objects>
-                <viewController id="ksE-dg-gvi" customClass="ArticleViewController" customModule="Feel_Good_News" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ksE-dg-gvi" customClass="ArticleViewController" customModule="Aussie_news" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Title" id="riw-vT-XmQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wRd-mI-29V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -54,7 +54,7 @@
         <!--Aussie News-->
         <scene sceneID="AuS-XL-zRJ">
             <objects>
-                <viewController id="Cvm-bh-it5" customClass="HomeViewController" customModule="Feel_Good_News" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Cvm-bh-it5" customClass="HomeViewController" customModule="Aussie_news" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="150-Jo-w7T">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,7 +63,7 @@
                                 <rect key="frame" x="0.0" y="48" width="414" height="702"/>
                                 <color key="backgroundColor" red="0.14509803921568626" green="0.27843137254901962" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="105" id="mE9-9I-gyW" customClass="HomeTableViewCell" customModule="Feel_Good_News" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="105" id="mE9-9I-gyW" customClass="HomeTableViewCell" customModule="Aussie_news" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mE9-9I-gyW" id="h9a-VU-81f">
@@ -86,7 +86,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="CollectionCell" id="JHo-Pn-LpO" customClass="CollectionViewCell" customModule="Feel_Good_News" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="CollectionCell" id="JHo-Pn-LpO" customClass="CollectionViewCell" customModule="Aussie_news" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="-5" width="95" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2EX-BA-Tpa">
@@ -98,7 +98,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" red="0.1450980392" green="0.2784313725" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="95" translatesAutoresizingMaskIntoConstraints="NO" id="dxg-Ed-x37">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="95" translatesAutoresizingMaskIntoConstraints="NO" id="dxg-Ed-x37">
                                                     <rect key="frame" x="0.0" y="0.0" width="95" height="57"/>
                                                     <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="15"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -173,13 +173,13 @@
         <!--Search-->
         <scene sceneID="fvX-dg-CzN">
             <objects>
-                <viewController id="Rm0-za-y6x" customClass="SearchViewController" customModule="Feel_Good_News" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Rm0-za-y6x" customClass="SearchViewController" customModule="Aussie_news" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GgA-wW-HwY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="siT-DS-eqv">
-                                <rect key="frame" x="5" y="5" width="350" height="42"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="siT-DS-eqv">
+                                <rect key="frame" x="5" y="5" width="361" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="K1s-nc-zY8"/>
@@ -202,8 +202,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ap8-tL-G2c">
-                                <rect key="frame" x="363" y="5" width="35" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ap8-tL-G2c">
+                                <rect key="frame" x="374" y="5" width="24" height="42"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -245,7 +245,7 @@
         <!--Saved Articles-->
         <scene sceneID="92r-al-udH">
             <objects>
-                <viewController id="gft-c9-kYK" customClass="SavedViewController" customModule="Feel_Good_News" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gft-c9-kYK" customClass="SavedViewController" customModule="Aussie_news" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mru-sP-MNv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -254,7 +254,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <color key="backgroundColor" red="0.1450980392" green="0.2784313725" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SXx-bN-Etz">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="SXx-bN-Etz">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SXx-bN-Etz" id="owx-cV-a6r">
@@ -504,9 +504,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aOi-Fi-Ow5"/>
+        <segue reference="9Oq-y6-zMQ"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" systemColor="systemGray6Color"/>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>

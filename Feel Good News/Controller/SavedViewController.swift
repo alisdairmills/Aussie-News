@@ -9,15 +9,11 @@ import UIKit
 import SDWebImage
 
 
-//make saved articles look better when empty.
-
-
 class SavedViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
     var articles = [Article]()
-    
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,11 +81,9 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
         } else { cell.contentView.backgroundColor = UIColor.lightGray
         }
         cell.cellImage.layer.cornerRadius = 10
-        
-        //fix the date on this. carry info over from artivle view controller
-        //cell.cellDate.text = cellArticles.publishedAt
         cell.cellTitle.text = cellArticles.title
         cell.cellDate.text = GlobalArray.dateArrayGlobal[indexPath.row]
+        
         //downloads and caches images faster
         SDWebImageDownloader.shared.downloadImage(
             with: URL(string: cellArticles.urlToImage ?? ""),
