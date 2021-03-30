@@ -31,16 +31,15 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "HomeTableViewXib", bundle: nil), forCellReuseIdentifier: "CellXib")
+        tableView.register(UINib(nibName: "TableViewXib", bundle: nil), forCellReuseIdentifier: "CellXib")
         collectionView.delegate = self
         collectionView.dataSource = self
         newsManager.delegate = self
-        
     }
     
 }
 
-//MARK: - News Manager Delegate
+//MARK: - NewsManager Delegate
 
 extension HomeViewController: NewsManagerDelegate {
     
@@ -106,7 +105,7 @@ extension HomeViewController: UITableViewDataSource , UITableViewDelegate {
         //downloads and caches images faster
         SDWebImageDownloader.shared.downloadImage(
             with: URL(string: cellArticles.urlToImage ?? ""),
-            options: [.highPriority, .continueInBackground],
+            options: [.highPriority, .continueInBackground, .avoidDecodeImage, .decodeFirstFrameOnly],
             progress: { (receivedSize, expectedSize, url) in
             },
             completed: { [weak self] (image, data, error, finished) in

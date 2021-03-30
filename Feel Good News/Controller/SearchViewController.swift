@@ -18,14 +18,14 @@ class SearchViewController: UIViewController, UIActionSheetDelegate {
     var dateArray = [String]()
     var searchArray = [Article]()
     var array = [Article]()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(GlobalArray.savedArrayGlobal)
+        
         newsManager.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "HomeTableViewXib", bundle: nil), forCellReuseIdentifier: "CellXib")
+        tableView.register(UINib(nibName: "TableViewXib", bundle: nil), forCellReuseIdentifier: "CellXib")
         searchTextField.delegate = self
         
         //implemented this to make the placeholder text darker and more legible against a white background
@@ -56,6 +56,7 @@ extension SearchViewController: UITextFieldDelegate {
             self.newsManager.parseData(option: "Search")
         }
         tableView.reloadData()
+
     }
     
     @IBAction func SearchButtonPressed(_ sender: UIButton) {

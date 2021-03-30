@@ -19,6 +19,13 @@ class SavedViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         articles = GlobalArray.savedArrayGlobal
            tableView.reloadData()
+        if articles.isEmpty {
+            let ac = UIAlertController(title: "", message: "Saved articles will be stored here", preferredStyle: .alert)
+            self.present(ac, animated: true) {
+                let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissAC))
+                ac.view.superview?.subviews[0].addGestureRecognizer(tap)
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -26,8 +33,11 @@ class SavedViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "HomeTableViewXib", bundle: nil), forCellReuseIdentifier: "CellXib")
+        tableView.register(UINib(nibName: "TableViewXib", bundle: nil), forCellReuseIdentifier: "CellXib")
       
+    }
+    @objc func dismissAC() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
     
@@ -51,6 +61,7 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
             articles.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
             tableView.reloadData()
+          
         }
     }
     

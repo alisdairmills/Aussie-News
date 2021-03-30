@@ -312,7 +312,7 @@
         <!--Settings-->
         <scene sceneID="Q4j-HG-CE2">
             <objects>
-                <tableViewController id="ffW-1W-Tln" sceneMemberID="viewController">
+                <tableViewController id="ffW-1W-Tln" customClass="SettingsTableViewController" customModule="Aussie_news" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="18" id="xFT-FU-Kfk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -391,7 +391,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Content Policy - (Currently Inactive)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hkB-dq-aT6">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Content Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hkB-dq-aT6">
                                                     <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -402,6 +402,9 @@
                                             <color key="backgroundColor" red="0.29304212330000001" green="0.41310232879999997" blue="0.5019738078" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1133381203" green="0.2989875078" blue="0.32036405800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="bGT-eu-Q9n" kind="show" id="3an-UV-Hs2"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="ufK-C5-EUz" style="IBUITableViewCellStyleDefault" id="NoN-Oa-elI">
                                         <rect key="frame" x="0.0" y="285.5" width="414" height="43.5"/>
@@ -448,10 +451,45 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="H0t-MG-BQi"/>
+                    <connections>
+                        <outlet property="ContentTab" destination="NnO-08-rAF" id="Uac-Q0-TlC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tky-Pz-HpI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="103" y="1584"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Byj-SL-tPi">
+            <objects>
+                <viewController id="bGT-eu-Q9n" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xqq-rd-x17">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ec9-NB-Ref">
+                                <rect key="frame" x="20" y="20" width="374" height="685"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WBN-HO-whx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ec9-NB-Ref" firstAttribute="leading" secondItem="WBN-HO-whx" secondAttribute="leading" constant="20" id="21o-NY-X5w"/>
+                            <constraint firstItem="ec9-NB-Ref" firstAttribute="top" secondItem="WBN-HO-whx" secondAttribute="top" constant="20" id="jaD-b9-eRB"/>
+                            <constraint firstItem="WBN-HO-whx" firstAttribute="trailing" secondItem="ec9-NB-Ref" secondAttribute="trailing" constant="20" id="nLU-jm-jxw"/>
+                            <constraint firstItem="WBN-HO-whx" firstAttribute="bottom" secondItem="ec9-NB-Ref" secondAttribute="bottom" constant="20" id="qEk-rS-0SG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ykR-wF-hXN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eCQ-eE-OY6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="973.91304347826099" y="1583.7053571428571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="f3e-Bu-vmL">
@@ -504,7 +542,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9Oq-y6-zMQ"/>
+        <segue reference="aOi-Fi-Ow5"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
@@ -513,6 +551,9 @@
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="lineweight" catalog="system" width="128" height="110"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

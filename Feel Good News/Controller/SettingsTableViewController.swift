@@ -7,7 +7,9 @@
 
 import UIKit
 
-class SettingsTableViewController: UIViewController {
+class SettingsTableViewController: UITableViewController {
+    
+    @IBOutlet weak var ContentTab: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -37,7 +37,6 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
                 barButtons(bookmark: "bookmark.fill")
             }
         }
-        let userDefaults = UserDefaults.standard
     }
     
     override func viewDidLoad() {
@@ -78,7 +77,7 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
     }
     
     @objc func save() {
-        
+       
         if savedImageName == "bookmark" {
             savedImageName = "bookmark.fill"
             barButtons(bookmark: "bookmark.fill")
@@ -94,8 +93,9 @@ class ArticleViewController: UIViewController, WKNavigationDelegate {
             GlobalArray.dateArrayGlobal.removeFirst()
             savedAlert(note: "Article Removed")
         }
-      
-      
+        let defaults = UserDefaults.standard
+        defaults.set(GlobalArray.savedArrayGlobal, forKey: "SavedArrays")
+        defaults.set(GlobalArray.dateArrayGlobal, forKey: "DateArrays")
 }
 
 }

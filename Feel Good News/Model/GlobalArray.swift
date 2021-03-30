@@ -14,8 +14,6 @@ struct GlobalArray   {
     static var savedArrayGlobal = [Article]()
     
     static var dateArrayGlobal = [String]()
- 
 
-    
 }
 
