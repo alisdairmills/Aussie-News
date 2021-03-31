@@ -10,7 +10,7 @@ import UIKit
 
 protocol NewsManagerDelegate {
     func updateNews(_ newsManager: NewsManager, news: Articles)
-}/Users/alex/Documents
+}
 
 struct NewsManager {
     var delegate: NewsManagerDelegate?
