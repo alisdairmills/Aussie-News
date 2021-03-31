@@ -111,6 +111,7 @@
 				FA7BC5A625D6084D00439347 /* View */,
 				FA7BC5A725D6085500439347 /* Controller */,
 				FA7BC59825D5FA5700439347 /* Assets.xcassets */,
+				FA40A57B260DE737006A817F /* App Icons - App Store 2-1024.png */,
 				FA7BC59D25D5FA5700439347 /* Info.plist */,
 				FAE0F62826084E30002F216A /* Fonts */,
 			);
@@ -144,10 +145,9 @@
 			children = (
 				FA7BC59325D5FA5700439347 /* HomeViewController.swift */,
 				FA7BC5B725D6122A00439347 /* SearchViewController.swift */,
-				FA7BC5B125D6119C00439347 /* SettingsTableViewController.swift */,
-				FA7BC5B425D611CA00439347 /* ArticleViewController.swift */,
 				FA40A573260D9133006A817F /* SavedViewController.swift */,
-				FA40A57B260DE737006A817F /* App Icons - App Store 2-1024.png */,
+				FA7BC5B425D611CA00439347 /* ArticleViewController.swift */,
+				FA7BC5B125D6119C00439347 /* SettingsTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
